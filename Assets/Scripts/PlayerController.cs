@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
     private SpriteRenderer sprite;
 
     public Transform groundCheck;
-    public Transform AttackRange;
+    public Transform attackRange;
 
     void Awake() {
         rb2d = GetComponent<Rigidbody2D>();
@@ -41,8 +41,17 @@ public class PlayerController : MonoBehaviour
     }
 
     void FixedUpdate() {
+        float move = Input.GetAxis ("Horizontal") * maxSpeed;
+
+        anim.SetFloat ("Speed", Mathf.Abs(move));
+
+		rb2d.velocity = new Vector2 (move * maxSpeed, rb2d.velocity.y);
+
+		Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));
+
         if (jumping){
             rb2d.AddForce (new Vector2(0f, jumpForce));
+            jumping = false;
         }
     }
 }

@@ -43,7 +43,7 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate() {
         float move = Input.GetAxis ("Horizontal") * maxSpeed;
 
-        anim.SetFloat ("Speed", Mathf.Abs(move));
+        // anim.SetFloat ("Speed", Mathf.Abs(move));
 
 		rb2d.velocity = new Vector2 (move * maxSpeed, rb2d.velocity.y);
 

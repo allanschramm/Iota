@@ -257,8 +257,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66fb9fb8f4d7c444c9d7b3f6440ed47f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 1.5
-  jumpForce: 150
+  maxSpeed: 2
+  jumpForce: 1500
   groundCheck: {fileID: 912162496}
   attackRange: {fileID: 1807699456}
 --- !u!95 &448253747

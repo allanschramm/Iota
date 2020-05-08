@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour
     {
         grounded = Physics2D.Linecast(transform.position, groundCheck.position, 1 >> LayerMask.NameToLayer ("Ground"));
 
-        if(Input.GetButtonDown("Jump") && grounded){
+        if(Input.GetKeyDown("space")){
             jumping = true;
         }
 

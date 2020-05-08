@@ -11,8 +11,14 @@ public class PlayerController : MonoBehaviour
     private bool jumping;
 
     private Rigidbody2D rb2d;
-    private Animator animator;
+    private Animator anim;
     private SpriteRenderer sprite;
+
+    void Awake() {
+        rb2d = GetComponent<Rigidbody2D>();
+        sprite = GetComponent<SpriteRenderer>();
+        anim = GetComponent<Animator>();
+    }
 
     // Start is called before the first frame update
     void Start()

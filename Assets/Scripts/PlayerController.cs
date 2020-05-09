@@ -17,6 +17,11 @@ public class PlayerController : MonoBehaviour
     public Transform groundCheck;
     public Transform attackRange;
 
+    public WeaponController[] AllWeapons;
+
+    List<WeaponController> EnabledWeapons = new List<WeaponController> ();
+    WeaponController CurrentWeapon = null;
+
     void Awake() {
         rb2d = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
@@ -58,10 +63,20 @@ public class PlayerController : MonoBehaviour
 		if (move > 0 && sprite.flipX || move < 0 && !sprite.flipX) {
 			Flip ();
 		}
+
+        if (Input.GetButtonDown("Fire1"));{
+            DoAttack ();
+        }
     }
 
     void Flip()
 	{
-		sprite.flipX = !sprite.flipX;
+		sprite.flipX = !sprite.flip
+        
+        public void EnableWeapon(int index){
+            if(index >= 0 &&  < AllWeapons.Length){
+                if(!EnabledWeapons.Contains(AllWeapons[index]));
+            }
+        }
 	}
 }

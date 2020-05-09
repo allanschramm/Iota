@@ -5,6 +5,7 @@ using UnityEngine;
 public class WeaponController : MonoBehaviour
 {
     public Transform AttackRange;
+    public GameObject SlashPrefab;
     public float AttackInterval = 0.25f;
 
     private bool doAttack = false;

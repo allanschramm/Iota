@@ -43,6 +43,13 @@ public class PlayerController : MonoBehaviour
             jumping = true;
         }
 
+        if (Input.GetButtonDown("Fire1")){
+            DoAttack();
+        }
+
+        if (Input.GetKeyDown (KeyCode.Q)){
+            ChangeGun();
+        }
     }
 
     void FixedUpdate() {
@@ -64,19 +71,25 @@ public class PlayerController : MonoBehaviour
 			Flip ();
 		}
 
-        if (Input.GetButtonDown("Fire1"));{
-            DoAttack ();
+        
+    }
+
+    void DoAttack(){
+        if (CurrentWeapon != null){
+            CurrentWeapon.Attack();
         }
     }
 
     void Flip()
 	{
-		sprite.flipX = !sprite.flip
+		sprite.flipX = !sprite.flipX;
         
-        public void EnableWeapon(int index){
-            if(index >= 0 &&  < AllWeapons.Length){
+        
+	}
+
+    public void EnableWeapon(int index){
+            if(index >= 0 && 0 < AllWeapons.Length){
                 if(!EnabledWeapons.Contains(AllWeapons[index]));
             }
         }
-	}
 }

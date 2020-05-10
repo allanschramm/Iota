@@ -48,7 +48,7 @@ public class PlayerController : MonoBehaviour
         }
 
         if (Input.GetKeyDown (KeyCode.Q)){
-            ChangeGun();
+            ChangeWeapon();
         }
     }
 
@@ -89,7 +89,9 @@ public class PlayerController : MonoBehaviour
 
     public void EnableWeapon(int index){
             if(index >= 0 && 0 < AllWeapons.Length){
-                if(!EnabledWeapons.Contains(AllWeapons[index]));
+                if(!EnabledWeapons.Contains(AllWeapons[index])){
+                    
+                }
             }
         }
 }

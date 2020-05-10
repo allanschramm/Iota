@@ -14,6 +14,7 @@ public class EnemyController : MonoBehaviour
 
     private int direction = -1;
     public int speed;
+    int health = 5;
 
     private bool attacking = false;
     private GameObject player;
@@ -54,7 +55,7 @@ public class EnemyController : MonoBehaviour
         Vector2 newPosition = transform.position;
         newPosition.x += direction * speed * Time.deltaTime;
         transform.position = newPosition;
-        
+
         if (destinationX == minX && newPosition.x <= destinationX){
             destinationX = maxX;
             direction = 1;
@@ -63,6 +64,13 @@ public class EnemyController : MonoBehaviour
             destinationX = minX;
             direction = -1;
             Flip();
+        }
+    }
+
+    public void Damage(){
+        health--;
+        if(health <= 0){
+            Destroy (gameObject);
         }
     }
 

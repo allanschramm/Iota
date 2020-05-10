@@ -60,7 +60,7 @@ public class PlayerController : MonoBehaviour
         move = Mathf.Clamp(move, -maxSpeed, maxSpeed);
 		rb2d.velocity = new Vector2 (move * maxSpeed, rb2d.velocity.y);
 
-        anim.SetFloat ("Max Speed", Mathf.Abs(move));
+//        anim.SetFloat ("Max Speed", Mathf.Abs(move));
 
 		Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));
 

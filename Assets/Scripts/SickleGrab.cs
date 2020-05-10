@@ -9,7 +9,7 @@ public class SickleGrab : MonoBehaviour
     // Start is called before the first frame update
     void OnTriggerEnter2D(Collider2D other) {
         if (other.CompareTag ("Player")) {
-            other.GetComponent<PlayerController> ().EnableGun (WeaponNumber);
+            other.GetComponent<PlayerController> ().EnableWeapon (WeaponNumber);
             Destroy (gameObject);
         }
     }

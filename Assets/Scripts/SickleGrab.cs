@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class SickleGrab : MonoBehaviour
 {
-    public int GunNumber;
+    public int WeaponNumber;
 
     // Start is called before the first frame update
     void OnTriggerEnter2D(Collider2D other) {
         if (other.CompareTag ("Player")) {
-            other.GetComponent<PlayerController> ().EnableGun (GunNumber);
+            other.GetComponent<PlayerController> ().EnableGun (WeaponNumber);
             Destroy (gameObject);
         }
     }

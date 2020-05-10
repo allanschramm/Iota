@@ -16,8 +16,9 @@ public class WeaponController : MonoBehaviour
     {
         if (doAttack && Time.time >= nextAttack){
             // programar função do attack aqui
-
-            nextAttack = Time.time +AttackInterval;
+            Instantiate (SlashPrefab, AttackRange.position,
+                Quaternion.Euler(0, 0, transform.lossyScale.x < 0 ? -180 :0));
+            nextAttack = Time.time + AttackInterval;
         }
     }
 

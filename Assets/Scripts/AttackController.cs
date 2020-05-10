@@ -9,7 +9,7 @@ public class AttackController : MonoBehaviour
     {
         GetComponent<Rigidbody2D> ().velocity
             = new Vector2 (transform.localRotation.eulerAngles.z == 0 ? 20 : -20, 0);
-        Destroy (gameObject, .5f);
+        Destroy (gameObject, 2f);
     }
 
     // Update is called once per frame

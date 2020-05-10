@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
     private bool grounded;
     private bool jumping;
 
+    int health = 10;
+
     private Rigidbody2D rb2d;
     private Animator anim;
     private SpriteRenderer sprite;
@@ -75,6 +77,14 @@ public class PlayerController : MonoBehaviour
         
     }
 
+    public void Damage(){
+        health--;
+        if (health <=0){
+            Debug.Log("Game Over");
+            Destroy (gameObject);
+        }
+    }
+
     void Flip()
 	{
 		sprite.flipX = !sprite.flipX;
@@ -90,8 +100,9 @@ public class PlayerController : MonoBehaviour
     }
 
     void ChangeWeapon(){
-        if(CurrentWeapon !=null)
+        if(CurrentWeapon !=null){
             CurrentWeapon.gameObject.SetActive (false);
+        }
 
         weaponIndex++;
 

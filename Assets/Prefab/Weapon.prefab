@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 291479813393601033}
   - component: {fileID: 291479813393601030}
   - component: {fileID: 7245782817355149425}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25,14 +25,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 291479813393601032}
-  m_LocalRotation: {x: -0, y: -0, z: -0.60876125, w: 0.7933535}
-  m_LocalPosition: {x: 3.03, y: -0.04, z: -55.65095}
-  m_LocalScale: {x: 0.79633564, y: 0.79633564, z: 0.79633564}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 291479813530989982}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -75}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &291479813393601030
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -122,10 +122,10 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 291479813530990177}
-  m_LocalRotation: {x: -0, y: -0, z: 0.6087613, w: 0.79335344}
-  m_LocalPosition: {x: 0.09, y: 1.18, z: 10.295186}
-  m_LocalScale: {x: 0.18499571, y: 0.18499571, z: 0.1849957}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 291479813393601033}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 75}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

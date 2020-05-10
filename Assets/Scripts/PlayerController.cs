@@ -81,7 +81,8 @@ public class PlayerController : MonoBehaviour
 	}
 
     public void EnableWeapon(int index){
-        if(index >= 0 && 0 < AllWeapons.Length){
+        if(index >= 0 && index < AllWeapons.Length){
+
             if(!EnabledWeapons.Contains(AllWeapons[index])){
                 EnabledWeapons.Add (AllWeapons [index]);
             }
@@ -111,7 +112,7 @@ public class PlayerController : MonoBehaviour
        
 }
 
-public class WeaponGrab : MonoBehaviour{
+public class WeaponGrab : MonoBehaviour {
     public int WeaponNumber;
 
     void OnTriggerEnter2D(Collider2D other) {

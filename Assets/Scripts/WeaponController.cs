@@ -24,5 +24,6 @@ public class WeaponController : MonoBehaviour
 
     public void Attack(){
         doAttack = true;
+        print("Atacando");
     }
 }

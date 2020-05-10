@@ -95,8 +95,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf984572277087e43b6a61146dce7880, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AttackRange: {fileID: 0}
-  SlashPrefab: {fileID: 0}
+  AttackRange: {fileID: 291479813530989982}
+  SlashPrefab: {fileID: 1204687992123442852, guid: 0ae6d39136bd2fc4190284cb7e6a140f,
+    type: 3}
   AttackInterval: 0.25
 --- !u!1 &291479813530990177
 GameObject:

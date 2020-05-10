@@ -74,12 +74,6 @@ public class PlayerController : MonoBehaviour
         
     }
 
-    void DoAttack(){
-        if (CurrentWeapon != null){
-            CurrentWeapon.Attack();
-        }
-    }
-
     void Flip()
 	{
 		sprite.flipX = !sprite.flipX;
@@ -88,10 +82,28 @@ public class PlayerController : MonoBehaviour
 	}
 
     public void EnableWeapon(int index){
-            if(index >= 0 && 0 < AllWeapons.Length){
-                if(!EnabledWeapons.Contains(AllWeapons[index])){
-                    
-                }
+        if(index >= 0 && 0 < AllWeapons.Length){
+            if(!EnabledWeapons.Contains(AllWeapons[index])){
+                
             }
         }
+    }
+
+    void DoAttack(){
+        if (CurrentWeapon != null){
+            CurrentWeapon.Attack();
+        }
+    }
+
+       
+}
+
+public class WeaponGrab : MonoBehaviour{
+    public int WeaponNumber;
+
+    void OnTriggerEnter2D(Collider2D other) {
+        if (other.CompareTag ("Player")){
+            other.GetComponent<PlayerController> ().EnableWeapon (WeaponNumber);
+        }
+    }
 }

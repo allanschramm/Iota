@@ -15,12 +15,13 @@ public class PlayerController : MonoBehaviour
     private SpriteRenderer sprite;
 
     public Transform groundCheck;
+
+    // Weapon System
     public Transform attackRange;
-
     public WeaponController[] AllWeapons;
-
     List<WeaponController> EnabledWeapons = new List<WeaponController> ();
     WeaponController CurrentWeapon = null;
+    int weaponIndex = -1;
 
     void Awake() {
         rb2d = GetComponent<Rigidbody2D>();
@@ -77,15 +78,27 @@ public class PlayerController : MonoBehaviour
     void Flip()
 	{
 		sprite.flipX = !sprite.flipX;
-        
-        
 	}
 
     public void EnableWeapon(int index){
         if(index >= 0 && 0 < AllWeapons.Length){
             if(!EnabledWeapons.Contains(AllWeapons[index])){
-                
+                EnabledWeapons.Add (AllWeapons [index]);
             }
+        }
+    }
+
+    void ChangeWeapon(){
+        if(CurrentWeapon !=null)
+            CurrentWeapon.gameObject.SetActive (false);
+
+        weaponIndex++;
+
+        if (weaponIndex == EnabledWeapons.Count){
+            weaponIndex = -1;
+        } else {
+            CurrentWeapon = EnabledWeapons [weaponIndex];
+            CurrentWeapon.gameObject.SetActive (true);
         }
     }
 
@@ -102,8 +115,9 @@ public class WeaponGrab : MonoBehaviour{
     public int WeaponNumber;
 
     void OnTriggerEnter2D(Collider2D other) {
-        if (other.CompareTag ("Player")){
+        if (other.CompareTag ("Player")) {
             other.GetComponent<PlayerController> ().EnableWeapon (WeaponNumber);
+            Destroy (gameObject);
         }
     }
 }

@@ -18,28 +18,20 @@ public class EnemyController : MonoBehaviour
     private bool attacking = false;
     private GameObject player;
 
- public float life = 10;
-	private bool isPlat;
-	private bool isObstacle;
-	private Transform fallCheck;
-	private Transform wallCheck;
-	public LayerMask turnLayerMask;
+    public float life = 12;
+
 	private Rigidbody2D rb;
 
-	// private bool facingRight = true;
 	public bool isInvincible = false;
 	private bool isHitted = false;
 
     void Awake () {
-		fallCheck = transform.Find("FallCheck");
-		wallCheck = transform.Find("WallCheck");
 		rb = GetComponent<Rigidbody2D>();
 	}
 
     // Start is called before the first frame update
     void Start()
     {
-        
         minX = transform.position.x - WalkDistance;
         maxX = transform.position.x + WalkDistance;
 
@@ -66,10 +58,10 @@ public class EnemyController : MonoBehaviour
     }
 
     void FixedUpdate() {
-        if (life <= 0) {
-			transform.GetComponent<Animator>().SetBool("IsDead", true);
-			StartCoroutine(DestroyEnemy());
-		}
+		// if (life <= 0) {
+		// 	transform.GetComponent<Animator>().SetBool("IsDead", true);
+		// 	StartCoroutine(DestroyEnemy());
+		// }
     }
 
     void Move(){

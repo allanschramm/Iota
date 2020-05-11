@@ -29,7 +29,9 @@ public class CharacterController2D : MonoBehaviour
 	private float prevVelocityX = 0f;
 	private bool canCheck = false; //For check if player is wallsliding
 
-	public float life = 10f; //Life of the player
+	public int life = 12; //Life of the player
+
+
 	public bool invincible = false; //If player can die
 	private bool canMove = true; //If player can move
 
@@ -256,7 +258,7 @@ public class CharacterController2D : MonoBehaviour
 		transform.localScale = theScale;
 	}
 
-	public void ApplyDamage(float damage, Vector3 position) 
+	public void ApplyDamage(int damage, Vector3 position) 
 	{
 		if (!invincible)
 		{

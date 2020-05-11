@@ -66,13 +66,6 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    //  public void Damage(){
-    //     health--;
-    //     if(health <= 0){
-    //         Destroy (gameObject);
-    //     }
-    // }
-
     public void ApplyDamage(float damage) {
 			float direction = damage / Mathf.Abs(damage);
 			damage = Mathf.Abs(damage);
@@ -80,14 +73,13 @@ public class EnemyController : MonoBehaviour
 			health -= damage;
 			rb2d.velocity = Vector2.zero;
 			rb2d.AddForce(new Vector2(direction * 500f, 100f));
-			// StartCoroutine(HitTime());
 	}
 
 	void OnCollisionStay2D(Collision2D collision)
 	{
 		if (collision.gameObject.tag == "Player" && health > 0)
 		{
-			collision.gameObject.GetComponent<CharacterController2D>().ApplyDamage(2f, transform.position);
+			collision.gameObject.GetComponent<CharacterController2D>().ApplyDamage(2, transform.position);
 		}
 	}
 

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8370440957525943932}
   - component: {fileID: 8425007246200786066}
   m_Layer: 1
-  m_Name: Grass 1
+  m_Name: Grass2
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 8482940840907983810}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.3501626, y: -4.4991846, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 8, y: 8, z: 8}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0

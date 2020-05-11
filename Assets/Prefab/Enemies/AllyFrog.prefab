@@ -12,7 +12,7 @@ GameObject:
   m_Layer: 9
   m_Name: WallCheck
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2378968968690843017}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.206, y: 0, z: 0}
+  m_LocalPosition: {x: 0.2, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8718063433309046668}
@@ -42,7 +42,7 @@ GameObject:
   m_Layer: 9
   m_Name: FallCheck
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -54,7 +54,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2556278208813591910}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.265, y: -0.16, z: 0}
+  m_LocalPosition: {x: 0.31, y: -0.175, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8718063433309046668}
@@ -72,7 +72,7 @@ GameObject:
   m_Layer: 9
   m_Name: AttackCheck
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 3306451490063965843, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -84,7 +84,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5982929742369473837}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.258, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8718063433309046668}
@@ -120,8 +120,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8718063433309046666}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 26.939081, y: -2.0795977, z: 0}
-  m_LocalScale: {x: 3.5684, y: 3.5684, z: 3.5684}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 9015078201007468065}
   - {fileID: 3473073700785650826}
@@ -192,7 +192,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: ebddb6b4508bb8c478b19c82f88a4299, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 0.35, y: 0.25}
@@ -210,12 +210,12 @@ CapsuleCollider2D:
   m_GameObject: {fileID: 8718063433309046666}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 73035f974857c94489896440d1e2b9e8, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.35000002, y: 0.25000003}
+  m_Offset: {x: 0, y: -0.15}
+  m_Size: {x: 0.39100772, y: 0.39100772}
   m_Direction: 0
 --- !u!50 &8718063433309046671
 Rigidbody2D:
@@ -248,7 +248,7 @@ Animator:
   m_GameObject: {fileID: 8718063433309046666}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: bc1b6763e1d30e044815e79c4821d456, type: 2}
+  m_Controller: {fileID: 9100000, guid: 9e28e89b0438ae141a6ff30db5383b50, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

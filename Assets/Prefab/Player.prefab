@@ -12,7 +12,7 @@ GameObject:
   m_Layer: 1
   m_Name: AttackCheck
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3185815421330751521}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 3.33, y: -0.99, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3486071250209453641}
@@ -63,7 +63,7 @@ Transform:
   m_GameObject: {fileID: 3486071250209453642}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.1849957, y: 0.1849957, z: 0.1849957}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3486071250949113767}
   - {fileID: 2577592721797599107}
@@ -85,22 +85,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 783f8b7882d2d2a42a5b76de9179978f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_JumpForce: 850
-  m_MovementSmoothing: 0.05
+  m_JumpForce: 1000
+  m_MovementSmoothing: 0
   m_AirControl: 1
   m_WhatIsGround:
     serializedVersion: 2
-    m_Bits: 55
+    m_Bits: 53
   m_GroundCheck: {fileID: 3486071250949113767}
   m_WallCheck: {fileID: 2577592721797599107}
   canDoubleJump: 0
-  m_DashForce: 25
+  m_DashForce: 50
   life: 10
   invincible: 0
-  particleJumpUp: {fileID: 198341621129356860, guid: 6cc4fbe9cea41a246b09c2c4f97fa702,
-    type: 3}
-  particleJumpDown: {fileID: 198668599249397950, guid: 33f986fbee565ce4c9e2dce4c9086fb1,
-    type: 3}
+  particleJumpUp: {fileID: 6900226561087090470}
+  particleJumpDown: {fileID: 225520577254340513}
   OnFallEvent:
     m_PersistentCalls:
       m_Calls:
@@ -142,7 +140,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dmgValue: 4
-  throwableObject: {fileID: 1204687992123442852, guid: 0ae6d39136bd2fc4190284cb7e6a140f,
+  throwableObject: {fileID: 5532974359214069763, guid: 340067e8e5a097546ad175f1d00a6ece,
     type: 3}
   attackCheck: {fileID: 2050800787726196962}
   animator: {fileID: 3486071250209453652}
@@ -267,8 +265,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.23093681, y: -0.1270851}
-  m_Size: {x: 4.1566086, y: 7.3305535}
+  m_Offset: {x: -0.24044394, y: 0.01326561}
+  m_Size: {x: 4.1999707, y: 7.049849}
   m_Direction: 0
 --- !u!82 &1381796719425031167
 AudioSource:
@@ -390,7 +388,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3486071250949113816}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -3.91, z: 0}
+  m_LocalPosition: {x: 0, y: -4.13, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3486071250209453641}
@@ -420,7 +418,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8294994828124052388}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.35, y: 0, z: 0}
+  m_LocalPosition: {x: 2.52, y: 0.11, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3486071250209453641}
@@ -437,13 +435,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: SmokeGround
       objectReference: {fileID: 0}
+    - target: {fileID: 1383418444051284, guid: 33f986fbee565ce4c9e2dce4c9086fb1, type: 3}
+      propertyPath: m_Layer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4683964150826710, guid: 33f986fbee565ce4c9e2dce4c9086fb1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4683964150826710, guid: 33f986fbee565ce4c9e2dce4c9086fb1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.95
+      value: -3.96
       objectReference: {fileID: 0}
     - target: {fileID: 4683964150826710, guid: 33f986fbee565ce4c9e2dce4c9086fb1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -489,6 +491,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 135360657427128095}
   m_PrefabAsset: {fileID: 0}
+--- !u!198 &225520577254340513 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 198668599249397950, guid: 33f986fbee565ce4c9e2dce4c9086fb1,
+    type: 3}
+  m_PrefabInstance: {fileID: 135360657427128095}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6701956410782550298
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -500,13 +508,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: SmokeTrail
       objectReference: {fileID: 0}
+    - target: {fileID: 1966325769923070, guid: 6cc4fbe9cea41a246b09c2c4f97fa702, type: 3}
+      propertyPath: m_Layer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4416826757754200, guid: 6cc4fbe9cea41a246b09c2c4f97fa702, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4416826757754200, guid: 6cc4fbe9cea41a246b09c2c4f97fa702, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.95
+      value: -3.7099998
       objectReference: {fileID: 0}
     - target: {fileID: 4416826757754200, guid: 6cc4fbe9cea41a246b09c2c4f97fa702, type: 3}
       propertyPath: m_LocalPosition.z
@@ -549,6 +561,12 @@ PrefabInstance:
 --- !u!4 &6705174627166364738 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4416826757754200, guid: 6cc4fbe9cea41a246b09c2c4f97fa702,
+    type: 3}
+  m_PrefabInstance: {fileID: 6701956410782550298}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &6900226561087090470 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 198341621129356860, guid: 6cc4fbe9cea41a246b09c2c4f97fa702,
     type: 3}
   m_PrefabInstance: {fileID: 6701956410782550298}
   m_PrefabAsset: {fileID: 0}

@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1754412024155865393}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.265, y: -0.16, z: 0}
+  m_LocalPosition: {x: -0.256, y: -0.186, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4890237999069965275}
@@ -74,6 +74,7 @@ GameObject:
   - component: {fileID: 8481085883412513956}
   - component: {fileID: 4890237999069965272}
   - component: {fileID: 4890237999069965286}
+  - component: {fileID: 5653665915165364154}
   m_Layer: 9
   m_Name: Frog
   m_TagString: Enemy
@@ -90,7 +91,7 @@ Transform:
   m_GameObject: {fileID: 4890237999069965277}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3.5684, y: 3.5684, z: 3.5684}
+  m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children:
   - {fileID: 5060542743809426038}
   - {fileID: 798125789614674141}
@@ -172,14 +173,14 @@ CapsuleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4890237999069965277}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 6200000, guid: 73035f974857c94489896440d1e2b9e8, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.35000002, y: 0.25000003}
+  m_Size: {x: 0.44649568, y: 0.44649568}
   m_Direction: 0
 --- !u!50 &4890237999069965272
 Rigidbody2D:
@@ -221,3 +222,29 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!61 &5653665915165364154
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4890237999069965277}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.35, y: 0.25}
+    newSize: {x: 0.35, y: 0.25}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.35, y: 0.25}
+  m_EdgeRadius: 0

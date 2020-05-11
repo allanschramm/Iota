@@ -33,6 +33,7 @@ Transform:
   m_LocalScale: {x: 0.1849957, y: 0.1849957, z: 0.1849957}
   m_Children:
   - {fileID: 3486071250949113767}
+  - {fileID: 2577592721797599107}
   - {fileID: 3486071252237734128}
   - {fileID: 3776980830385888757}
   m_Father: {fileID: 0}
@@ -191,6 +192,36 @@ Transform:
   m_Father: {fileID: 3486071250209453641}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8294994828124052388
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2577592721797599107}
+  m_Layer: 8
+  m_Name: WallCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2577592721797599107
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8294994828124052388}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.35, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3486071250209453641}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &3486071251747311612
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -262,7 +293,7 @@ PrefabInstance:
     - target: {fileID: 291479813393601033, guid: f11876aeefbdfb8428e927c450011387,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 291479813393601033, guid: f11876aeefbdfb8428e927c450011387,
         type: 3}
@@ -459,7 +490,7 @@ PrefabInstance:
     - target: {fileID: 291479813393601033, guid: f11876aeefbdfb8428e927c450011387,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 291479813393601033, guid: f11876aeefbdfb8428e927c450011387,
         type: 3}

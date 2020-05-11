@@ -4516,6 +4516,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 3486071252237734129, guid: 134af0ca5abd5a245b5e97b92e0abe02,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3776980830385888756, guid: 134af0ca5abd5a245b5e97b92e0abe02,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5828987333940359816, guid: 134af0ca5abd5a245b5e97b92e0abe02,
         type: 3}
       propertyPath: SlashPrefab
@@ -4526,6 +4536,11 @@ PrefabInstance:
       propertyPath: SlashPrefab
       value: 
       objectReference: {fileID: 5332678795205147970}
+    - target: {fileID: 6120165671126744973, guid: 134af0ca5abd5a245b5e97b92e0abe02,
+        type: 3}
+      propertyPath: AttackInterval
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3486071250209453653, guid: 134af0ca5abd5a245b5e97b92e0abe02, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 134af0ca5abd5a245b5e97b92e0abe02, type: 3}

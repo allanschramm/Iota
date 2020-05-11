@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2231415835499551467}
   - component: {fileID: 2023494103436173049}
-  - component: {fileID: 2169295568709156995}
+  - component: {fileID: 6951376152901293704}
   m_Layer: 1
   m_Name: Sign
   m_TagString: Enemy
@@ -82,8 +82,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!70 &2169295568709156995
-CapsuleCollider2D:
+--- !u!61 &6951376152901293704
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -96,5 +96,15 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.74, y: 1.15}
-  m_Direction: 0
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.85, y: 0.88}
+    newSize: {x: 0.74, y: 1.15}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.85, y: 0.88}
+  m_EdgeRadius: 0

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1026699953542068
+--- !u!1 &2417401417122199717
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,38 +8,39 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4893345051804890}
-  - component: {fileID: 212253792376930504}
-  - component: {fileID: 70954002611658418}
-  - component: {fileID: 114989584718186818}
+  - component: {fileID: 2421287925471008113}
+  - component: {fileID: 2556052470684855739}
+  - component: {fileID: 2397511273053824769}
+  - component: {fileID: 2313979069736654107}
+  - component: {fileID: 2368474988551520245}
   m_Layer: 1
-  m_Name: Rock
+  m_Name: Grass 1 1
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4893345051804890
+--- !u!4 &2421287925471008113
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1026699953542068}
+  m_GameObject: {fileID: 2417401417122199717}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.86, y: -4.08, z: 0}
+  m_LocalPosition: {x: -1.3501626, y: -4.4991846, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &212253792376930504
+--- !u!212 &2556052470684855739
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1026699953542068}
+  m_GameObject: {fileID: 2417401417122199717}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -72,43 +73,63 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0ffb130e952c953408c5274c4af86e40, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 344e3afdae9403a4b9d571f99ce9f3b1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.74, y: 1.15}
+  m_Size: {x: 0.91, y: 0.79}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!70 &70954002611658418
-CapsuleCollider2D:
+--- !u!58 &2397511273053824769
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1026699953542068}
+  m_GameObject: {fileID: 2417401417122199717}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.74, y: 1.15}
-  m_Direction: 0
---- !u!114 &114989584718186818
+  m_Offset: {x: 0, y: 0.18}
+  serializedVersion: 2
+  m_Radius: 0.26
+--- !u!114 &2313979069736654107
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1026699953542068}
+  m_GameObject: {fileID: 2417401417122199717}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 011ed35a806124d4d9b783dea554b56d, type: 3}
+  m_Script: {fileID: 11500000, guid: 798f114e4b3ed95429e9ec3e18f250b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  life: 5
+  leafParticle: {fileID: 2999072420754868772, guid: 014f34c6d7bffda4db20140b6ad0422d,
+    type: 3}
+--- !u!95 &2368474988551520245
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2417401417122199717}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f7136f7c057544e418a585bb5cd457ee, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

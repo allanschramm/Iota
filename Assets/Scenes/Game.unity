@@ -315,10 +315,25 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 796415719733942120, guid: a9c80974943f9e142ad2872fb70670d6,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: 0.012504816
+      objectReference: {fileID: 0}
+    - target: {fileID: 796415719733942120, guid: a9c80974943f9e142ad2872fb70670d6,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 0.009923585
+      objectReference: {fileID: 0}
+    - target: {fileID: 796415719733942120, guid: a9c80974943f9e142ad2872fb70670d6,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.30608773
+      objectReference: {fileID: 0}
     - target: {fileID: 3372126026178766416, guid: a9c80974943f9e142ad2872fb70670d6,
         type: 3}
       propertyPath: speed
-      value: 10
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 4890237999069965275, guid: a9c80974943f9e142ad2872fb70670d6,
         type: 3}
@@ -328,7 +343,7 @@ PrefabInstance:
     - target: {fileID: 4890237999069965275, guid: a9c80974943f9e142ad2872fb70670d6,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.84
+      value: -3.01
       objectReference: {fileID: 0}
     - target: {fileID: 4890237999069965275, guid: a9c80974943f9e142ad2872fb70670d6,
         type: 3}
@@ -395,6 +410,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Frog
       objectReference: {fileID: 0}
+    - target: {fileID: 4890237999069965286, guid: a9c80974943f9e142ad2872fb70670d6,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 9b736cf9d530784478fdaadd24c3970c, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a9c80974943f9e142ad2872fb70670d6, type: 3}
 --- !u!1 &370191342

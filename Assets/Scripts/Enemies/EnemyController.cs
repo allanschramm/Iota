@@ -39,6 +39,10 @@ public class EnemyController : MonoBehaviour
                 Flip();
             }
 
+            if(true){
+
+            }
+
             attacking = Mathf.Abs (player.transform.position.x - transform.position.x) < 10;
 
         } else {

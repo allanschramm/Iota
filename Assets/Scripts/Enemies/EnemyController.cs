@@ -13,21 +13,10 @@ public class EnemyController : MonoBehaviour
 
     private int direction = -1;
     public int speed;
-    int health = 12;
+    float health = 12;
 
     private bool attacking = false;
     private GameObject player;
-
-    public float life = 12;
-
-	private Rigidbody2D rb;
-
-	public bool isInvincible = false;
-	private bool isHitted = false;
-
-    void Awake () {
-		rb = GetComponent<Rigidbody2D>();
-	}
 
     // Start is called before the first frame update
     void Start()
@@ -57,13 +46,6 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    void FixedUpdate() {
-		// if (life <= 0) {
-		// 	transform.GetComponent<Animator>().SetBool("IsDead", true);
-		// 	StartCoroutine(DestroyEnemy());
-		// }
-    }
-
     void Move(){
         Vector2 newPosition = transform.position;
         newPosition.x += direction * speed * Time.deltaTime;
@@ -80,29 +62,26 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-     public void Damage(){
-        health--;
-        if(health <= 0){
-            Destroy (gameObject);
-        }
-    }
+    //  public void Damage(){
+    //     health--;
+    //     if(health <= 0){
+    //         Destroy (gameObject);
+    //     }
+    // }
 
     public void ApplyDamage(float damage) {
-		if (!isInvincible) 
-		{
 			float direction = damage / Mathf.Abs(damage);
 			damage = Mathf.Abs(damage);
 			transform.GetComponent<Animator>().SetBool("Hit", true);
-			life -= damage;
-			rb.velocity = Vector2.zero;
-			rb.AddForce(new Vector2(direction * 500f, 100f));
-			StartCoroutine(HitTime());
-		}
+			health -= damage;
+			rb2d.velocity = Vector2.zero;
+			rb2d.AddForce(new Vector2(direction * 500f, 100f));
+			// StartCoroutine(HitTime());
 	}
 
 	void OnCollisionStay2D(Collision2D collision)
 	{
-		if (collision.gameObject.tag == "Player" && life > 0)
+		if (collision.gameObject.tag == "Player" && health > 0)
 		{
 			collision.gameObject.GetComponent<CharacterController2D>().ApplyDamage(2f, transform.position);
 		}
@@ -118,15 +97,6 @@ public class EnemyController : MonoBehaviour
         attacking = true;
     }
 
-    	IEnumerator HitTime()
-	{
-		isHitted = true;
-		isInvincible = true;
-		yield return new WaitForSeconds(0.1f);
-		isHitted = false;
-		isInvincible = false;
-	}
-
     IEnumerator DestroyEnemy()
 	{
 		CapsuleCollider2D capsule = GetComponent<CapsuleCollider2D>();
@@ -134,7 +104,7 @@ public class EnemyController : MonoBehaviour
 		capsule.offset = new Vector2(0f, -0.8f);
 		capsule.direction = CapsuleDirection2D.Horizontal;
 		yield return new WaitForSeconds(0.25f);
-		rb.velocity = new Vector2(0, rb.velocity.y);
+		rb2d.velocity = new Vector2(0, rb2d.velocity.y);
 		yield return new WaitForSeconds(3f);
 		Destroy(gameObject);
 	}

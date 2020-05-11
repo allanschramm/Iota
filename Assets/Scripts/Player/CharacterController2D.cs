@@ -34,8 +34,6 @@ public class CharacterController2D : MonoBehaviour
 	private bool canMove = true; //If player can move
 
 	private Animator animator;
-	public ParticleSystem particleJumpUp; //Trail particles
-	public ParticleSystem particleJumpDown; //Explosion particles
 
 	private float jumpWallStartX = 0;
 	private float jumpWallDistX = 0; //Distance between player and wall
@@ -78,8 +76,7 @@ public class CharacterController2D : MonoBehaviour
 				if (!wasGrounded )
 				{
 					OnLandEvent.Invoke();
-					if (!m_IsWall && !isDashing) 
-						particleJumpDown.Play();
+
 					canDoubleJump = true;
 					if (m_Rigidbody2D.velocity.y < 0f)
 						limitVelOnWallJump = false;
@@ -176,8 +173,6 @@ public class CharacterController2D : MonoBehaviour
 				m_Grounded = false;
 				m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
 				canDoubleJump = true;
-				particleJumpDown.Play();
-				particleJumpUp.Play();
 			}
 			else if (!m_Grounded && jump && canDoubleJump && !isWallSliding)
 			{

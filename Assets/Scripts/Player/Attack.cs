@@ -9,6 +9,7 @@ public class Attack : MonoBehaviour
 	// public Transform attackCheck;
 	// private Rigidbody2D m_Rigidbody2D;
 	public Animator animator;
+
 	// public bool canAttack = true;
 	// public bool isTimeToCheck = false;
 
@@ -25,12 +26,19 @@ public class Attack : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-	public void PlayAnimation(AnimationClip clip){
+	public void PlayAnimation(AnimationClip clip){ 
 		animator.Play(clip.name);
 	}
 
 	public void SetWeapon(int damageValue){
 		damage = damageValue;
+	}
+
+	void OnTriggerEnter2D(Collider2D other) {
+		EnemyController enemy = other.GetComponent<EnemyController> ();
+		if(enemy != null){
+			enemy.ApplyDamage(damage);
+		}
 	}
 
     // // Update is called once per frame

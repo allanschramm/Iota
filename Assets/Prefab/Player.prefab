@@ -97,6 +97,8 @@ MonoBehaviour:
   life: 12
   invincible: 0
   throwableObject: {fileID: 0}
+  canAttack: 1
+  isTimeToCheck: 0
   OnFallEvent:
     m_PersistentCalls:
       m_Calls:
@@ -237,7 +239,7 @@ CapsuleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3914285414585601767}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 6200000, guid: 73035f974857c94489896440d1e2b9e8, type: 2}
   m_IsTrigger: 0
@@ -349,7 +351,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3914285414585601767}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 6200000, guid: 73035f974857c94489896440d1e2b9e8, type: 2}
   m_IsTrigger: 0
@@ -441,7 +443,7 @@ GameObject:
   - component: {fileID: 1943852945385283781}
   - component: {fileID: 705467771061264136}
   - component: {fileID: 6370887000474773981}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: Attack
   m_TagString: Untagged
   m_Icon: {fileID: 0}

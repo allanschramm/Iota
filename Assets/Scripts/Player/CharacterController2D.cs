@@ -31,16 +31,21 @@ public class CharacterController2D : MonoBehaviour
 
 	public int life = 12; //Life of the player
 
+	public GameObject cam;
 
 	public bool invincible = false; //If player can die
 	private bool canMove = true; //If player can move
 
 	private Animator animator;
 
+	public Transform attackCheck;
+
 	public GameObject throwableObject;
 
 	private Weapon weaponEquipped;
 	private Attack attack;
+	public bool canAttack = true;
+	public bool isTimeToCheck = false;
 
 	private float jumpWallStartX = 0;
 	private float jumpWallDistX = 0; //Distance between player and wall
@@ -72,29 +77,33 @@ public class CharacterController2D : MonoBehaviour
 	}
 
 	void Update() {
-		if (Input.GetKeyDown(KeyCode.S))
-		{
-			// Change Weapon
-			
-		}
-
-		if (Input.GetKeyDown(KeyCode.D))
-		{
-			animator.SetBool("IsAttacking", true);
-			attack.PlayAnimation(weaponEquipped.animation);
-
-		}
-
-		if (Input.GetKeyDown(KeyCode.A))
-		{
-			GameObject throwableWeapon = Instantiate(throwableObject, transform.position + new Vector3(transform.localScale.x * 0.5f,-0.2f), Quaternion.identity) as GameObject; 
-			Vector2 direction = new Vector2(transform.localScale.x, 0);
-			throwableWeapon.GetComponent<ThrowableWeapon>().direction = direction; 
-			throwableWeapon.name = "ThrowableWeapon";
-		}
+		
 	}
 	private void FixedUpdate()
 	{
+		if (Input.GetKeyDown(KeyCode.S))
+		{
+			// Change Weapon
+
+		}
+
+		if (Input.GetKeyDown(KeyCode.D) && canAttack && weaponEquipped != null)
+		{
+			animator.SetBool("IsAttacking", true);
+			attack.PlayAnimation(weaponEquipped.animation);
+			canAttack = false;
+			StartCoroutine(AttackCooldown());
+		}
+
+		//Implementar arma a ser arremessada
+		if (Input.GetKeyDown(KeyCode.A))
+		{
+			// GameObject throwableWeapon = Instantiate(throwableObject, transform.position + new Vector3(transform.localScale.x * 0.5f,-0.2f), Quaternion.identity) as GameObject; 
+			// Vector2 direction = new Vector2(transform.localScale.x, 0);
+			// throwableWeapon.GetComponent<ThrowableWeapon>().direction = direction; 
+			// throwableWeapon.name = "ThrowableWeapon";
+		}
+
 		bool wasGrounded = m_Grounded;
 		m_Grounded = false;
 
@@ -293,6 +302,23 @@ public class CharacterController2D : MonoBehaviour
 		transform.localScale = theScale;
 	}
 
+	public void DoDashDamage()
+	{
+		weaponEquipped.damage = Mathf.Abs(weaponEquipped.damage);
+		Collider2D[] collidersEnemies = Physics2D.OverlapCircleAll(attackCheck.position, 0.9f);
+		for (int i = 0; i < collidersEnemies.Length; i++)
+		{
+			if (collidersEnemies[i].gameObject.tag == "Enemy")
+			{
+				if (collidersEnemies[i].transform.position.x - transform.position.x < 0)
+				{
+					weaponEquipped.damage = -weaponEquipped.damage;
+				}
+				collidersEnemies[i].gameObject.SendMessage("ApplyDamage", weaponEquipped.damage);
+				cam.GetComponent<CameraFollow>().ShakeCamera();
+			}
+		}
+	}
 
 	public void ApplyDamage(int damage, Vector3 position) 
 	{
@@ -315,6 +341,11 @@ public class CharacterController2D : MonoBehaviour
 		}
 	}
 
+	IEnumerator AttackCooldown()
+	{
+		yield return new WaitForSeconds(0.25f);
+		canAttack = true;
+	}
 	IEnumerator DashCooldown()
 	{
 		animator.SetBool("IsDashing", true);

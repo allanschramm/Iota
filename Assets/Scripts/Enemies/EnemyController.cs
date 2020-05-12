@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
+    public float life = 20;
+
     public float WalkDistance;
     private float minX;
     private float maxX;
@@ -17,6 +19,11 @@ public class EnemyController : MonoBehaviour
 
     private bool attacking = false;
     private GameObject player;
+
+	
+
+	public bool isInvincible = false;
+	private bool isHitted = false;
 
     // Start is called before the first frame update
     void Start()
@@ -50,6 +57,13 @@ public class EnemyController : MonoBehaviour
         }
     }
 
+    void FixedUpdate() {
+        	if (life <= 0) {
+			    transform.GetComponent<Animator>().SetBool("IsDead", true);
+			StartCoroutine(DestroyEnemy());
+		}
+    }
+
     void Move(){
         Vector2 newPosition = transform.position;
         newPosition.x += direction * speed * Time.deltaTime;
@@ -66,14 +80,18 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    public void ApplyDamage(float damage) {
+	public void ApplyDamage(float damage) {
+		if (!isInvincible) 
+		{
 			float direction = damage / Mathf.Abs(damage);
 			damage = Mathf.Abs(damage);
 			transform.GetComponent<Animator>().SetBool("Hit", true);
-			health -= damage;
+			life -= damage;
 			rb2d.velocity = Vector2.zero;
 			rb2d.AddForce(new Vector2(direction * 500f, 100f));
-	}
+			StartCoroutine(HitTime());
+		}
+    }
 
 	void OnCollisionStay2D(Collision2D collision)
 	{
@@ -93,6 +111,14 @@ public class EnemyController : MonoBehaviour
         attacking = true;
     }
 
+	IEnumerator HitTime()
+	{
+		isHitted = true;
+		isInvincible = true;
+		yield return new WaitForSeconds(0.1f);
+		isHitted = false;
+		isInvincible = false;
+	}
     IEnumerator DestroyEnemy()
 	{
 		CapsuleCollider2D capsule = GetComponent<CapsuleCollider2D>();

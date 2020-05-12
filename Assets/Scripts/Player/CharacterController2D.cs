@@ -37,6 +37,11 @@ public class CharacterController2D : MonoBehaviour
 
 	private Animator animator;
 
+	public GameObject throwableObject;
+
+	private Weapon weaponEquipped;
+	private Attack attack;
+
 	private float jumpWallStartX = 0;
 	private float jumpWallDistX = 0; //Distance between player and wall
 	private bool limitVelOnWallJump = false; //For limit wall jump distance with low fps
@@ -62,7 +67,30 @@ public class CharacterController2D : MonoBehaviour
 			OnLandEvent = new UnityEvent();
 	}
 
+	void Start() {
+		attack = GetComponentInChildren<Attack>();
+	}
 
+	void Update() {
+		if (Input.GetKeyDown(KeyCode.S))
+		{
+			animator.SetBool("IsAttacking", true);
+			attack.PlayAnimation(weaponEquipped.animation);
+		}
+
+		if (Input.GetKeyDown(KeyCode.D))
+		{
+			animator.SetBool("IsAttacking", true);
+		}
+
+		if (Input.GetKeyDown(KeyCode.A))
+		{
+			GameObject throwableWeapon = Instantiate(throwableObject, transform.position + new Vector3(transform.localScale.x * 0.5f,-0.2f), Quaternion.identity) as GameObject; 
+			Vector2 direction = new Vector2(transform.localScale.x, 0);
+			throwableWeapon.GetComponent<ThrowableWeapon>().direction = direction; 
+			throwableWeapon.name = "ThrowableWeapon";
+		}
+	}
 	private void FixedUpdate()
 	{
 		bool wasGrounded = m_Grounded;
@@ -127,6 +155,11 @@ public class CharacterController2D : MonoBehaviour
 				m_Rigidbody2D.velocity = new Vector2(0, m_Rigidbody2D.velocity.y);
 			}
 		}
+	}
+
+	public void AddWeapon(Weapon weapon){
+		weaponEquipped = weapon;
+		attack.SetWeapon(weaponEquipped.damage);
 	}
 
 
@@ -257,6 +290,7 @@ public class CharacterController2D : MonoBehaviour
 		theScale.x *= -1;
 		transform.localScale = theScale;
 	}
+
 
 	public void ApplyDamage(int damage, Vector3 position) 
 	{

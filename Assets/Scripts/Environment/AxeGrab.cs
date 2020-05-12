@@ -5,13 +5,11 @@ using UnityEngine;
 
 public class AxeGrab : MonoBehaviour
 {
-    public int GunNumber;
     public int WeaponNumber;
 
     // Start is called before the first frame update
     void OnTriggerEnter2D(Collider2D other) {
         if (other.CompareTag ("Player")) {
-            // other.GetComponent<PlayerMovement> ().EnableGun (GunNumber);
             // other.GetComponent<PlayerMovement> ().EnableWeapon (WeaponNumber);
             Destroy (gameObject);
         }

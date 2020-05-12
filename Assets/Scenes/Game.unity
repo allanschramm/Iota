@@ -2083,6 +2083,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1033818925795843817, guid: 2dc8ae0b579f4074d8afad3b76c89930,
         type: 3}
+    - target: {fileID: 4017280168959224147, guid: ae507c7e99f3f3c499207b5861c903e0,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4018115057938027851, guid: ae507c7e99f3f3c499207b5861c903e0,
         type: 3}
       propertyPath: runSpeed
@@ -138854,7 +138859,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 751415782}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d9955788a5eaffa49a9297f38eaa6202, type: 3}
   m_Name: 

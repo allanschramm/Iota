@@ -2208,6 +2208,16 @@ PrefabInstance:
       propertyPath: life
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 4018167163817236165, guid: ae507c7e99f3f3c499207b5861c903e0,
+        type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 495782383}
+    - target: {fileID: 4018167163817236165, guid: ae507c7e99f3f3c499207b5861c903e0,
+        type: 3}
+      propertyPath: attackCheck
+      value: 
+      objectReference: {fileID: 1959077709}
     - target: {fileID: 7346252980836127756, guid: ae507c7e99f3f3c499207b5861c903e0,
         type: 3}
       propertyPath: attack
@@ -140825,6 +140835,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 35
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1959077709 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3916221046162149291, guid: ae507c7e99f3f3c499207b5861c903e0,
+    type: 3}
+  m_PrefabInstance: {fileID: 751415782}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2012780669
 PrefabInstance:
   m_ObjectHideFlags: 0

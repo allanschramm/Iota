@@ -40,7 +40,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3910882732105631085}
   - component: {fileID: 4018167163817236165}
-  - component: {fileID: 4017280168959224147}
   - component: {fileID: 4018115057938027851}
   - component: {fileID: 3792612847600793161}
   - component: {fileID: 3963811521219238283}
@@ -97,6 +96,7 @@ MonoBehaviour:
   m_DashForce: 80
   life: 12
   invincible: 0
+  throwableObject: {fileID: 0}
   OnFallEvent:
     m_PersistentCalls:
       m_Calls:
@@ -125,26 +125,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &4017280168959224147
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3914285414585601767}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9955788a5eaffa49a9297f38eaa6202, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dmgValue: 4
-  throwableObject: {fileID: 1204687992123442852, guid: 0ae6d39136bd2fc4190284cb7e6a140f,
-    type: 3}
-  attackCheck: {fileID: 3916221046162149291}
-  animator: {fileID: 3963811521219238283}
-  canAttack: 1
-  isTimeToCheck: 0
-  cam: {fileID: 1025145325119744, guid: d975e66254b08984ab50d4c39dcb947f, type: 3}
 --- !u!114 &4018115057938027851
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -460,7 +440,8 @@ GameObject:
   - component: {fileID: 7196967096789515262}
   - component: {fileID: 1943852945385283781}
   - component: {fileID: 705467771061264136}
-  m_Layer: 1
+  - component: {fileID: 6370887000474773981}
+  m_Layer: 0
   m_Name: Attack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -576,3 +557,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.25, y: 1.5}
   m_EdgeRadius: 0
+--- !u!114 &6370887000474773981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7913117170128994363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9955788a5eaffa49a9297f38eaa6202, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 4
+  animator: {fileID: 7196967096789515262}

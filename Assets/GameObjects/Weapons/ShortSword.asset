@@ -16,6 +16,6 @@ MonoBehaviour:
   weaponName: Short Sword
   description: Espada curta
   damage: 4
-  image: {fileID: 0}
+  image: {fileID: 21300000, guid: bb830721043fa4f46a8173e60c84359a, type: 3}
   animation: {fileID: 7400000, guid: bd752a5df55fd6e479ac71d1917df641, type: 2}
   message: 

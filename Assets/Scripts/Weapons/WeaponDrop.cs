@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WeaponDrop : MonoBehaviour
 {
-    Weapon weapon;
+    public Weapon weapon;
 
     private SpriteRenderer sprite;
 
@@ -25,6 +25,7 @@ public class WeaponDrop : MonoBehaviour
         CharacterController2D player = other.GetComponent<CharacterController2D> ();
         if(player !=null){
             player.AddWeapon(weapon);
+            Destroy(gameObject);
         }
     }
 }

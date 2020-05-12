@@ -74,13 +74,15 @@ public class CharacterController2D : MonoBehaviour
 	void Update() {
 		if (Input.GetKeyDown(KeyCode.S))
 		{
-			animator.SetBool("IsAttacking", true);
-			attack.PlayAnimation(weaponEquipped.animation);
+			// Change Weapon
+			
 		}
 
 		if (Input.GetKeyDown(KeyCode.D))
 		{
 			animator.SetBool("IsAttacking", true);
+			attack.PlayAnimation(weaponEquipped.animation);
+
 		}
 
 		if (Input.GetKeyDown(KeyCode.A))

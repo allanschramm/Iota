@@ -15,7 +15,6 @@ public class EnemyController : MonoBehaviour
 
     private int direction = -1;
     public int speed;
-    float health = 12;
 
     private bool attacking = false;
     private GameObject player;
@@ -95,7 +94,7 @@ public class EnemyController : MonoBehaviour
 
 	void OnCollisionStay2D(Collision2D collision)
 	{
-		if (collision.gameObject.tag == "Player" && health > 0)
+		if (collision.gameObject.tag == "Player" && life > 0)
 		{
 			collision.gameObject.GetComponent<CharacterController2D>().ApplyDamage(2, transform.position);
 		}

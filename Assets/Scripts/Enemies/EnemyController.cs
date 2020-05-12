@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    public float life = 20;
+    public float life = 8;
 
     public float WalkDistance;
     private float minX;

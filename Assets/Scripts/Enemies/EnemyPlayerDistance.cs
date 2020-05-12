@@ -14,7 +14,7 @@ public class EnemyPlayerDistance : MonoBehaviour
 
     // Update is called once per frame
     void OnTriggerEnter2D(Collider2D other) {
-        if (other.CompareTag ("Player")){
+        if (other.CompareTag ("Player") && Parent.life > 0){
             Parent.AttackPlayer();
         }
     }

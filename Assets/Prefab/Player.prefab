@@ -95,7 +95,9 @@ MonoBehaviour:
   canDoubleJump: 0
   m_DashForce: 80
   life: 12
+  cam: {fileID: 0}
   invincible: 0
+  attackCheck: {fileID: 0}
   throwableObject: {fileID: 0}
   canAttack: 1
   isTimeToCheck: 0
@@ -424,7 +426,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3914512041606418681}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.88, y: -0.5, z: 0}
+  m_LocalPosition: {x: 4.45, y: -0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3910882732105631085}
@@ -446,7 +448,7 @@ GameObject:
   m_Layer: 1
   m_Name: Attack
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 3306451490063965843, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -458,7 +460,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7913117170128994363}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.86, y: -0.5, z: 0}
+  m_LocalPosition: {x: 4.43, y: -0.5, z: 0}
   m_LocalScale: {x: 8, y: 8, z: 8}
   m_Children: []
   m_Father: {fileID: 3910882732105631085}
@@ -546,18 +548,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.08847022, y: 0.071347}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.26, y: 1.5}
+    oldSize: {x: 1.24, y: 1.5}
     newSize: {x: 1.26, y: 1.5}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.25, y: 1.5}
+  m_Size: {x: 0.61643857, y: 0.8664384}
   m_EdgeRadius: 0
 --- !u!114 &6370887000474773981
 MonoBehaviour:

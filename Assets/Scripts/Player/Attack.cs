@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Attack : MonoBehaviour
 {
-	public float damage = 4;
+	public float damage;
 	// public GameObject throwableObject;
 	// public Transform attackCheck;
 	// private Rigidbody2D m_Rigidbody2D;

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-	public float FollowSpeed = 2f;
+	public float FollowSpeed;
 	public Transform Target;
 
 	// Transform of the camera to shake. Grabs the gameObject's transform
@@ -12,11 +12,11 @@ public class CameraFollow : MonoBehaviour
 	private Transform camTransform;
 
 	// How long the object should shake for.
-	public float shakeDuration = 0f;
+	public float shakeDuration;
 
 	// Amplitude of the shake. A larger value shakes the camera harder.
-	public float shakeAmount = 0.1f;
-	public float decreaseFactor = 1.0f;
+	public float shakeAmount;
+	public float decreaseFactor;
 
 	Vector3 originalPos;
 

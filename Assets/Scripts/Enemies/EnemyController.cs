@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    public float life = 8;
+    public float life;
 
     public float WalkDistance;
     private float minX;
@@ -45,10 +45,6 @@ public class EnemyController : MonoBehaviour
                 Flip();
             }
 
-            if(true){
-
-            }
-
             attacking = Mathf.Abs (player.transform.position.x - transform.position.x) < 10;
 
         } else {
@@ -58,24 +54,28 @@ public class EnemyController : MonoBehaviour
 
     void FixedUpdate() {
         	if (life <= 0) {
-			    transform.GetComponent<Animator>().SetBool("IsDead", true);
+			    transform.GetComponent<Animator>().SetTrigger("IsDead");
 			StartCoroutine(DestroyEnemy());
 		}
     }
 
     void Move(){
-        Vector2 newPosition = transform.position;
-        newPosition.x += direction * speed * Time.deltaTime;
-        transform.position = newPosition;
-        
-        if (destinationX == minX && newPosition.x <= destinationX){
-            destinationX = maxX;
-            direction = 1;
-            Flip();
-        } else if (destinationX == maxX && newPosition.x >= destinationX) {
-            destinationX = minX;
-            direction = -1;
-            Flip();
+        if(life > 0){
+            transform.GetComponent<Animator>().SetTrigger("IsJump");
+
+            Vector2 newPosition = transform.position;
+            newPosition.x += direction * speed * Time.deltaTime;
+            transform.position = newPosition;
+            
+            if (destinationX == minX && newPosition.x <= destinationX){
+                destinationX = maxX;
+                direction = 1;
+                Flip();
+            } else if (destinationX == maxX && newPosition.x >= destinationX) {
+                destinationX = minX;
+                direction = -1;
+                Flip();
+            }
         }
     }
 
@@ -84,7 +84,6 @@ public class EnemyController : MonoBehaviour
 		{
 			float direction = damage / Mathf.Abs(damage);
 			damage = Mathf.Abs(damage);
-			transform.GetComponent<Animator>().SetBool("Hit", true);
 			life -= damage;
 			rb2d.velocity = Vector2.zero;
 			rb2d.AddForce(new Vector2(direction * 500f, 100f));
@@ -112,10 +111,11 @@ public class EnemyController : MonoBehaviour
 
 	IEnumerator HitTime()
 	{
-		isHitted = true;
+		// isHitted = true;
 		isInvincible = true;
+        transform.GetComponent<Animator>().SetTrigger("Hit");
 		yield return new WaitForSeconds(0.1f);
-		isHitted = false;
+		// isHitted = false;
 		isInvincible = false;
 	}
     IEnumerator DestroyEnemy()
@@ -126,7 +126,7 @@ public class EnemyController : MonoBehaviour
 		capsule.direction = CapsuleDirection2D.Horizontal;
 		yield return new WaitForSeconds(0.25f);
 		rb2d.velocity = new Vector2(0, rb2d.velocity.y);
-		yield return new WaitForSeconds(3f);
+		yield return new WaitForSeconds(2f);
 		Destroy(gameObject);
 	}
 }

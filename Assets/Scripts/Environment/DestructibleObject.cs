@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DestructibleObject : MonoBehaviour
 {
-	public float life = 3;
+	public float life;
 
 	// Desired duration of the shake effect
 	private float shakeDuration = 0f;
@@ -51,7 +51,8 @@ public class DestructibleObject : MonoBehaviour
 
 	public void ApplyDamage(float damage)
 	{
-		life -= 1;
+		damage = Mathf.Abs(damage);
+		life -= damage;
 		shakeDuration = 0.1f;
 	}
 }

@@ -114,7 +114,7 @@ public class EnemyController : MonoBehaviour
 		// isHitted = true;
 		isInvincible = true;
         transform.GetComponent<Animator>().SetTrigger("Hit");
-		yield return new WaitForSeconds(0.1f);
+		yield return new WaitForSeconds(0.2f);
 		// isHitted = false;
 		isInvincible = false;
 	}

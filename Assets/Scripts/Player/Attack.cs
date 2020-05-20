@@ -36,10 +36,17 @@ public class Attack : MonoBehaviour
 
 	void OnTriggerEnter2D(Collider2D other) {
 		EnemyController enemy = other.GetComponent<EnemyController> ();
+		DestructibleObject destrObject = other.GetComponent<DestructibleObject> ();
+		
 		if(enemy != null){
 			enemy.ApplyDamage(damage);
 		}
+
+		if(destrObject != null){
+			destrObject.ApplyDamage(damage);
+		}
 	}
+
 
     // // Update is called once per frame
     // void Update()

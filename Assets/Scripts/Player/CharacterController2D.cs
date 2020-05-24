@@ -17,7 +17,7 @@ public class CharacterController2D : MonoBehaviour
 	private Rigidbody2D m_Rigidbody2D;
 	private bool m_FacingRight = true;  // For determining which way the player is currently facing.
 	private Vector3 velocity = Vector3.zero;
-	private float limitFallSpeed = 25f; // Limit fall speed
+	private float limitFallSpeed = 50f; // Limit fall speed
 
 	public bool canDoubleJump = true; //If player can double jump
 	[SerializeField] private float m_DashForce = 25f;
@@ -344,7 +344,7 @@ public class CharacterController2D : MonoBehaviour
 
 	IEnumerator AttackCooldown()
 	{
-		yield return new WaitForSeconds(0.25f);
+		yield return new WaitForSeconds(0.1f);
 		canAttack = true;
 	}
 	IEnumerator DashCooldown()
@@ -400,9 +400,9 @@ public class CharacterController2D : MonoBehaviour
 		canMove = false;
 		invincible = true;
 		canAttack = false;
-		yield return new WaitForSeconds(0.4f);
+		yield return new WaitForSeconds(.2f);
 		m_Rigidbody2D.velocity = new Vector2(0, m_Rigidbody2D.velocity.y);
-		yield return new WaitForSeconds(1.1f);
+		yield return new WaitForSeconds(.8f);
 		SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
 	}
 }

@@ -166,7 +166,7 @@ CapsuleCollider2D:
   m_GameObject: {fileID: 8809544231333504612}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 73035f974857c94489896440d1e2b9e8, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -204,7 +204,7 @@ Animator:
   m_GameObject: {fileID: 8809544231333504612}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b3f2ab050cb7a31428c78cc727dd5576, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -225,5 +225,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20343516262856b4daf32b56022a8b94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  life: 0
   WalkDistance: 10
   speed: 20
+  isInvincible: 0

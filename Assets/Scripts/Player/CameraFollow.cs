@@ -38,6 +38,7 @@ public class CameraFollow : MonoBehaviour
 	{
 		Vector3 newPosition = Target.position;
 		newPosition.z = -10;
+		newPosition.y = 10;
 		transform.position = Vector3.Slerp(transform.position, newPosition, FollowSpeed * Time.deltaTime);
 
 		if (shakeDuration > 0)

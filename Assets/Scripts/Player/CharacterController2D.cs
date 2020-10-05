@@ -93,6 +93,7 @@ public class CharacterController2D : MonoBehaviour
 			attack.PlayAnimation(weaponEquipped.animation);
 			canAttack = false;
 			StartCoroutine(AttackCooldown());
+			Debug.Log("Atacando");
 		}
 
 		//Implementar arma a ser arremessada

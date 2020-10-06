@@ -1555,6 +1555,26 @@ PrefabInstance:
       propertyPath: shakeAmount
       value: 0.3
       objectReference: {fileID: 0}
+    - target: {fileID: 114743086845943066, guid: d975e66254b08984ab50d4c39dcb947f,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 751415783}
+    - target: {fileID: 114743086845943066, guid: d975e66254b08984ab50d4c39dcb947f,
+        type: 3}
+      propertyPath: lookAheadFactor
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114743086845943066, guid: d975e66254b08984ab50d4c39dcb947f,
+        type: 3}
+      propertyPath: damping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114743086845943066, guid: d975e66254b08984ab50d4c39dcb947f,
+        type: 3}
+      propertyPath: lookAheadReturnSpeed
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d975e66254b08984ab50d4c39dcb947f, type: 3}
 --- !u!1001 &564736400
@@ -142569,7 +142589,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4893345051804890, guid: d9af5f279b4cdae4caad6d53e5e597f8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -32.529926
+      value: -32.4
       objectReference: {fileID: 0}
     - target: {fileID: 4893345051804890, guid: d9af5f279b4cdae4caad6d53e5e597f8, type: 3}
       propertyPath: m_LocalPosition.z

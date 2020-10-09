@@ -87,7 +87,7 @@ public class CharacterController2D : MonoBehaviour
 
 		}
 
-		if (Input.GetKeyDown(KeyCode.D) && canAttack && weaponEquipped != null)
+		if (Input.GetButton("Fire1") && canAttack)
 		{
 			animator.SetBool("IsAttacking", true);
 			attack.PlayAnimation(weaponEquipped.animation);
@@ -170,6 +170,7 @@ public class CharacterController2D : MonoBehaviour
 	}
 
 	public void AddWeapon(Weapon weapon){
+		canAttack = true;
 		weaponEquipped = weapon;
 		attack.SetWeapon(weaponEquipped.damage);
 	}
@@ -345,8 +346,10 @@ public class CharacterController2D : MonoBehaviour
 
 	IEnumerator AttackCooldown()
 	{
-		yield return new WaitForSeconds(0.1f);
-		canAttack = true;
+		yield return new WaitForSeconds(0.2f);
+		if(weaponEquipped != null){
+			canAttack = true;
+		}
 	}
 	IEnumerator DashCooldown()
 	{

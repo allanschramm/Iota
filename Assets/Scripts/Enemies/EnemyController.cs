@@ -12,7 +12,6 @@ public class EnemyController : MonoBehaviour
 
     private float destinationX;
     private Rigidbody2D rb2d;
-
     private int direction = -1;
     public int speed;
 
@@ -22,7 +21,7 @@ public class EnemyController : MonoBehaviour
 	
 
 	public bool isInvincible = false;
-	private bool isHitted = false;
+	// private bool isHitted = false;
 
     // Start is called before the first frame update
     void Start()
@@ -32,7 +31,7 @@ public class EnemyController : MonoBehaviour
 
         destinationX = minX;
         rb2d = GetComponent<Rigidbody2D> ();
-
+  
         player = GameObject.FindWithTag ("Player");
     }
 
@@ -53,8 +52,8 @@ public class EnemyController : MonoBehaviour
     }
 
     void FixedUpdate() {
-        	if (life <= 0) {
-			    transform.GetComponent<Animator>().SetTrigger("IsDead");
+        if (life <= 0) {
+			transform.GetComponent<Animator>().SetTrigger("IsDead");
 			StartCoroutine(DestroyEnemy());
 		}
     }

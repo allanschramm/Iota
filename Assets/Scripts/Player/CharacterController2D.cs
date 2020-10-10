@@ -86,6 +86,8 @@ public class CharacterController2D : MonoBehaviour
 			// Change Weapon
 
 		}
+		if(Input.GetKeyDown(KeyCode.R))
+		SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
 
 		if (Input.GetButton("Fire1") && canAttack)
 		{

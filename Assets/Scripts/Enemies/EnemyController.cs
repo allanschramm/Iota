@@ -87,6 +87,7 @@ public class EnemyController : MonoBehaviour
 			rb2d.velocity = Vector2.zero;
 			rb2d.AddForce(new Vector2(direction * 500f, 100f));
 			StartCoroutine(HitTime());
+            Debug.Log("Tomou hit");
 		}
     }
 

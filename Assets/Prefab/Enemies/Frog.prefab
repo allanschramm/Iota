@@ -211,7 +211,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   life: 8
-  WalkDistance: 5
+  WalkDistance: 0
   speed: 10
   isInvincible: 0
 --- !u!61 &5070079562753443809

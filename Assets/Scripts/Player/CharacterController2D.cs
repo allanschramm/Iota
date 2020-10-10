@@ -81,7 +81,7 @@ public class CharacterController2D : MonoBehaviour
 	}
 	private void FixedUpdate()
 	{
-		if (Input.GetKeyDown(KeyCode.S))
+		if (Input.GetButton("Vertical"))
 		{
 			// Change Weapon
 
@@ -97,7 +97,7 @@ public class CharacterController2D : MonoBehaviour
 		}
 
 		//Implementar arma a ser arremessada
-		if (Input.GetKeyDown(KeyCode.A))
+		if (Input.GetButton("Fire3"))
 		{
 			// GameObject throwableWeapon = Instantiate(throwableObject, transform.position + new Vector3(transform.localScale.x * 0.5f,-0.2f), Quaternion.identity) as GameObject; 
 			// Vector2 direction = new Vector2(transform.localScale.x, 0);

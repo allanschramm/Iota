@@ -25,7 +25,7 @@ public class PlayerMovement : MonoBehaviour {
 			jump = true;
 		}
 
-		if (Input.GetKeyDown(KeyCode.C))
+		if (Input.GetButton("Fire2"))
 		{
 			dash = true;
 		}

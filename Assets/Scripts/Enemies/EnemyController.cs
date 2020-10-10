@@ -60,7 +60,7 @@ public class EnemyController : MonoBehaviour
 
     void Move(){
         if(life > 0){
-            transform.GetComponent<Animator>().SetTrigger("IsJump");
+            transform.GetComponent<Animator>().SetTrigger("Walk");
 
             Vector2 newPosition = transform.position;
             newPosition.x += direction * speed * Time.deltaTime;

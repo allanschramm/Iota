@@ -19,7 +19,7 @@ public class CharacterController2D : MonoBehaviour
 	private Vector3 velocity = Vector3.zero;
 	private float limitFallSpeed = 50f; // Limit fall speed
 
-	public bool canDoubleJump = true; //If player can double jump
+	public bool canDoubleJump = false; //If player can double jump
 	[SerializeField] private float m_DashForce = 25f;
 	private bool canDash = true;
 	private bool isDashing = false; //If player is dashing

@@ -304,23 +304,23 @@ public class CharacterController2D : MonoBehaviour
 		transform.localScale = theScale;
 	}
 
-	// public void DoDashDamage()
-	// {
-	// 	weaponEquipped.damage = Mathf.Abs(weaponEquipped.damage);
-	// 	Collider2D[] collidersEnemies = Physics2D.OverlapCircleAll(attackCheck.position, 0.9f);
-	// 	for (int i = 0; i < collidersEnemies.Length; i++)
-	// 	{
-	// 		if (collidersEnemies[i].gameObject.tag == "Enemy" )
-	// 		{
-	// 			if (collidersEnemies[i].transform.position.x - transform.position.x < 0)
-	// 			{
-	// 				weaponEquipped.damage = -weaponEquipped.damage;
-	// 			}
-	// 			collidersEnemies[i].gameObject.SendMessage("ApplyDamage", weaponEquipped.damage);
-	// 			cam.GetComponent<CameraFollow>().ShakeCamera();
-	// 		}
-	// 	}
-	// }
+	public void DoDashDamage()
+	{
+		weaponEquipped.damage = Mathf.Abs(weaponEquipped.damage);
+		Collider2D[] collidersEnemies = Physics2D.OverlapCircleAll(attackCheck.position, 0.9f);
+		for (int i = 0; i < collidersEnemies.Length; i++)
+		{
+			if (collidersEnemies[i].gameObject.tag == "Enemy" )
+			{
+				if (collidersEnemies[i].transform.position.x - transform.position.x < 0)
+				{
+					weaponEquipped.damage = -weaponEquipped.damage;
+				}
+				collidersEnemies[i].gameObject.SendMessage("ApplyDamage", weaponEquipped.damage);
+				cam.GetComponent<CameraFollow>().ShakeCamera();
+			}
+		}
+	}
 
 	public void ApplyDamage(int damage, Vector3 position) 
 	{

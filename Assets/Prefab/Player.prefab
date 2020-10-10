@@ -246,8 +246,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.051919173, y: -0.04450233}
-  m_Size: {x: 0.18438111, y: 0.33060336}
+  m_Offset: {x: -0.052675225, y: -0.046713043}
+  m_Size: {x: 0.11739593, y: 0.33950067}
   m_Direction: 0
 --- !u!82 &3995644918039648239
 AudioSource:
@@ -369,7 +369,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3914398923525404049}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.057, y: -0.216, z: 0}
+  m_LocalPosition: {x: -0.057, y: -0.251, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3910882732105631085}

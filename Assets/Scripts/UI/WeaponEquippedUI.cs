@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class WeaponEquippedUI : MonoBehaviour
 {
     // Start is called before the first frame update
-    public Sprite[] sprite;
+    public Sprite[] bar;
     public Image WeaponUI;
 
     private CharacterController2D player;
@@ -15,11 +15,12 @@ public class WeaponEquippedUI : MonoBehaviour
     void Start()
     {
         player = GameObject.Find ("Player").GetComponent<CharacterController2D>();
+        WeaponUI.sprite = bar[0];
     }
 
     // Update is called once per frame
     void Update()
     {
-        WeaponUI.sprite = sprite[player.weaponEquipped.itemID];
+        WeaponUI.sprite = bar[player.weaponEquipped.itemID];
     }
 }

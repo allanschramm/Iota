@@ -6,6 +6,8 @@ public class WeaponDrop : MonoBehaviour
 {
     public Weapon weapon;
 
+    public WeaponEquippedUI weaponUI;
+
     private SpriteRenderer sprite;
 
     // Start is called before the first frame update
@@ -25,6 +27,7 @@ public class WeaponDrop : MonoBehaviour
         CharacterController2D player = other.GetComponent<CharacterController2D> ();
         if(player !=null){
             player.AddWeapon(weapon);
+            weaponUI.AddWeapon(weapon);
             Destroy(gameObject);
         }
     }

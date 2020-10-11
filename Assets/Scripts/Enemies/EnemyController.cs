@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     public float life;
+    public int dmg;
 
     public float WalkDistance;
     private float minX;
@@ -95,7 +96,7 @@ public class EnemyController : MonoBehaviour
 	{
 		if (collision.gameObject.tag == "Player" && life > 0)
 		{
-			collision.gameObject.GetComponent<CharacterController2D>().ApplyDamage(2, transform.position);
+			collision.gameObject.GetComponent<CharacterController2D>().ApplyDamage(dmg, transform.position);
 		}
 	}
 

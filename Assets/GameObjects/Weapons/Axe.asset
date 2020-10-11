@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59f3bab2c83f71b4db6857b19daa035a, type: 3}
   m_Name: Axe
   m_EditorClassIdentifier: 
-  itemID: 2
+  itemID: 1
   weaponName: Axe
   description: Machado
   damage: 6
-  image: {fileID: 21300000, guid: bb830721043fa4f46a8173e60c84359a, type: 3}
+  image: {fileID: 21300000, guid: ca12d7671c2128f4bab2d119c5001a19, type: 3}
   animation: {fileID: 7400000, guid: 6e161dbd03cdf3e4f898133931254a55, type: 2}
   message: "Voc\xEA encontrou um machado!"

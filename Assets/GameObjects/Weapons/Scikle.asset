@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59f3bab2c83f71b4db6857b19daa035a, type: 3}
   m_Name: Scikle
   m_EditorClassIdentifier: 
-  itemID: 3
+  itemID: 2
   weaponName: Scikle
   description: Foice
   damage: 8
-  image: {fileID: 21300000, guid: bb830721043fa4f46a8173e60c84359a, type: 3}
+  image: {fileID: 21300000, guid: dcf3530d6d1f9ec4d86f4c6a97de15d5, type: 3}
   animation: {fileID: 7400000, guid: c18b28338cbdabf4884416f649de058b, type: 2}
   message: "Voc\xEA encontrou uma foice!"

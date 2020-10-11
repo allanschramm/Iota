@@ -16,6 +16,6 @@ MonoBehaviour:
   weaponName: Short Sword
   description: Espada curta
   damage: 4
-  image: {fileID: 21300000, guid: bb830721043fa4f46a8173e60c84359a, type: 3}
+  image: {fileID: 1901863140318548941, guid: 28992bbbfa965c742ad48097159b18af, type: 3}
   animation: {fileID: 7400000, guid: 03e7415cb5aaa6a40ba6bd41d8eb23ff, type: 2}
   message: "Voc\xEA encontrou uma espada!"

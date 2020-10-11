@@ -80,6 +80,7 @@ public class CharacterController2D : MonoBehaviour
 	void Update() {
 		
 	}
+
 	private void FixedUpdate()
 	{
 		if (Input.GetButton("Vertical"))
@@ -87,6 +88,7 @@ public class CharacterController2D : MonoBehaviour
 			// Change Weapon
 
 		}
+
 		if(Input.GetKeyDown(KeyCode.R))
 		SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
 
@@ -177,7 +179,6 @@ public class CharacterController2D : MonoBehaviour
 		weaponEquipped = weapon;
 		attack.SetWeapon(weaponEquipped.damage);
 	}
-
 
 	public void Move(float move, bool jump, bool dash)
 	{
@@ -295,7 +296,6 @@ public class CharacterController2D : MonoBehaviour
 		}
 	}
 
-
 	private void Flip()
 	{
 		// Switch the way the player is labelled as facing.
@@ -354,6 +354,7 @@ public class CharacterController2D : MonoBehaviour
 			canAttack = true;
 		}
 	}
+
 	IEnumerator DashCooldown()
 	{
 		animator.SetBool("IsDashing", true);
@@ -371,12 +372,14 @@ public class CharacterController2D : MonoBehaviour
 		yield return new WaitForSeconds(time);
 		canMove = true;
 	}
+
 	IEnumerator MakeInvincible(float time) 
 	{
 		invincible = true;
 		yield return new WaitForSeconds(time);
 		invincible = false;
 	}
+
 	IEnumerator WaitToMove(float time)
 	{
 		canMove = false;

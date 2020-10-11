@@ -23,4 +23,7 @@ public class WeaponEquippedUI : MonoBehaviour
     {
         bar = sprite.sprite;
     }
+    public void AddWeapon(Weapon weapon){
+		weaponEquipped = weapon;
+	}
 }

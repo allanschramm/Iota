@@ -80,10 +80,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4890237999069965275}
+  - component: {fileID: 3372126026178766416}
   - component: {fileID: 4890237999069965274}
   - component: {fileID: 4890237999069965272}
   - component: {fileID: 4890237999069965286}
-  - component: {fileID: 3372126026178766416}
   - component: {fileID: 5070079562753443809}
   - component: {fileID: 5537204460833103812}
   m_Layer: 9
@@ -102,12 +102,29 @@ Transform:
   m_GameObject: {fileID: 4890237999069965277}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 20, y: 20, z: 20}
+  m_LocalScale: {x: 20, y: 20, z: 1}
   m_Children:
   - {fileID: 2991142007386456806}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3372126026178766416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4890237999069965277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20343516262856b4daf32b56022a8b94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  life: 8
+  dmg: 1
+  WalkDistance: 5
+  speed: 10
+  isInvincible: 0
 --- !u!212 &4890237999069965274
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -198,23 +215,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &3372126026178766416
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4890237999069965277}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20343516262856b4daf32b56022a8b94, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  life: 8
-  dmg: 1
-  WalkDistance: 0
-  speed: 10
-  isInvincible: 0
 --- !u!61 &5070079562753443809
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -222,7 +222,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4890237999069965277}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -248,12 +248,12 @@ CapsuleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4890237999069965277}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0030858524, y: -0.0015429019}
-  m_Size: {x: 0.46765772, y: 0.35965368}
+  m_Offset: {x: -0.0005822177, y: 0.0046210773}
+  m_Size: {x: 0.34829614, y: 0.23511136}
   m_Direction: 1

@@ -16,6 +16,6 @@ MonoBehaviour:
   weaponName: Axe
   description: Machado
   damage: 6
-  image: {fileID: 326653205800178347, guid: d8055c9e069af564380a9c413733c8bc, type: 3}
+  image: {fileID: -6451020461040997553, guid: abe3107eb57c8f241b5afc4d1fcca689, type: 3}
   animation: {fileID: 7400000, guid: 6e161dbd03cdf3e4f898133931254a55, type: 2}
   message: "Voc\xEA encontrou um machado!"

@@ -16,6 +16,6 @@ MonoBehaviour:
   weaponName: Hand
   description: Espada curta
   damage: 2
-  image: {fileID: 419583238168278022, guid: d8055c9e069af564380a9c413733c8bc, type: 3}
+  image: {fileID: -2027895187021310853, guid: abe3107eb57c8f241b5afc4d1fcca689, type: 3}
   animation: {fileID: 7400000, guid: a4b8cbca295bb1342883296bd686e2fd, type: 2}
   message: 

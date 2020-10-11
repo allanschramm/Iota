@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 59f3bab2c83f71b4db6857b19daa035a, type: 3}
-  m_Name: Scikle
+  m_Name: Flail
   m_EditorClassIdentifier: 
   itemID: 3
-  weaponName: Scikle
-  description: Foice
+  weaponName: Flail
+  description: Mangual
   damage: 8
-  image: {fileID: -482107963836951356, guid: d8055c9e069af564380a9c413733c8bc, type: 3}
+  image: {fileID: -5443706011219761410, guid: abe3107eb57c8f241b5afc4d1fcca689, type: 3}
   animation: {fileID: 7400000, guid: c18b28338cbdabf4884416f649de058b, type: 2}
   message: "Voc\xEA encontrou uma foice!"

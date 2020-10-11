@@ -20,6 +20,6 @@ public class WeaponEquippedUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-            WeaponUI.sprite = bar[player.weaponEquipped.itemID];
+        WeaponUI.sprite = bar[player.weaponEquipped.itemID];
     }
 }

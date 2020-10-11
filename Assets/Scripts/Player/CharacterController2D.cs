@@ -43,7 +43,7 @@ public class CharacterController2D : MonoBehaviour
 
 	public GameObject throwableObject;
 
-	private Weapon weaponEquipped;
+	public Weapon weaponEquipped;
 	private Attack attack;
 	public bool canAttack = true;
 	public bool isTimeToCheck = false;

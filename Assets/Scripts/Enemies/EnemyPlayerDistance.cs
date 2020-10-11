@@ -6,6 +6,7 @@ public class EnemyPlayerDistance : MonoBehaviour
 {
     public EnemyController Parent;
 
+
     // Start is called before the first frame update
     void Start()
     {

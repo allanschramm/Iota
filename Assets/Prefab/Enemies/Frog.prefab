@@ -211,7 +211,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   life: 8
-  damage: 1
+  dmg: 1
   WalkDistance: 0
   speed: 10
   isInvincible: 0

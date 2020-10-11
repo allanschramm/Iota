@@ -15,12 +15,11 @@ public class WeaponEquippedUI : MonoBehaviour
     void Start()
     {
         player = GameObject.Find ("Player").GetComponent<CharacterController2D>();
-        WeaponUI.sprite = bar[0];
     }
 
     // Update is called once per frame
     void Update()
     {
-        WeaponUI.sprite = bar[player.weaponEquipped.itemID];
+            WeaponUI.sprite = bar[player.weaponEquipped.itemID];
     }
 }

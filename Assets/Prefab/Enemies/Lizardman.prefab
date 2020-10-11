@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 8809544231333504610}
   - component: {fileID: 8809544231333504613}
   - component: {fileID: 3041271341432901876}
-  - component: {fileID: 8809544231333504611}
   m_Layer: 9
   m_Name: Lizardman
   m_TagString: Enemy
@@ -48,11 +47,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bf45e412e845ac439e4125135e043a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  life: 8
-  dmg: 4
-  WalkDistance: 40
-  speed: 20
-  isInvincible: 0
 --- !u!212 &8809544231333504608
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -169,19 +163,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.44, y: 0.6}
   m_EdgeRadius: 0
---- !u!70 &8809544231333504611
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8809544231333504612}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.46, y: 0.6}
-  m_Direction: 0

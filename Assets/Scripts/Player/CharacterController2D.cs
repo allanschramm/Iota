@@ -30,6 +30,7 @@ public class CharacterController2D : MonoBehaviour
 	private bool canCheck = false; //For check if player is wallsliding
 
 	public int life; //Life of the player
+	public int keys; //keys counter
 
 	public GameObject cam;
 

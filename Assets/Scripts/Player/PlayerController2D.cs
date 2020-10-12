@@ -18,6 +18,7 @@ public class PlayerController2D : MonoBehaviour
 
     public Transform groundCheck;
     private bool isGrounded;
+    private bool isAttacking;
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +31,10 @@ public class PlayerController2D : MonoBehaviour
     void Update()
     {
         float h = Input.GetAxisRaw("Horizontal") * speed;
+
+        if(isAttacking && isGrounded){
+            h = 0;
+        }
 
         if(h > 0 && isLookingLeft){
             Flip();
@@ -44,15 +49,17 @@ public class PlayerController2D : MonoBehaviour
             playerRb.AddForce(new Vector2(0, jumpForce));
         }
 
-        if(Input.GetButtonDown("Fire1") && isGrounded && h == 0){
-            playerAnim.SetTrigger("attack");
+        if(Input.GetButtonDown("Fire1") && isAttacking == false){
+            isAttacking = true;
+            playerAnim.SetTrigger("Attack");
         }
 
         playerRb.velocity = new Vector2(h * speed, speedY);
         
         playerAnim.SetInteger("h", (int) h);
-        playerAnim.SetBool("isGrounded", isGrounded);
+        playerAnim.SetBool("IsGrounded", isGrounded);
         playerAnim.SetFloat("speedY", speedY);
+        playerAnim.SetBool("IsAttacking", isAttacking);
 
     }
 
@@ -66,5 +73,13 @@ public class PlayerController2D : MonoBehaviour
         isLookingLeft = !isLookingLeft;
         float x = transform.localScale.x * -1;
         transform.localScale = new Vector3(x, transform.localScale.y, transform.localScale.z);
+    }
+
+    void OnEndAttack(){
+        isAttacking = false;
+    }
+
+    void hitBoxAttack(){
+        
     }
 }

@@ -40,7 +40,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3910882732105631085}
   - component: {fileID: 4745913119168639147}
-  - component: {fileID: 8082949537409288079}
   - component: {fileID: 3792612847600793161}
   - component: {fileID: 3963811521219238283}
   - component: {fileID: 3954991691671343767}
@@ -96,20 +95,6 @@ MonoBehaviour:
   attackCheck: {fileID: 3916221046162149291}
   invincible: 0
   cam: {fileID: 0}
---- !u!114 &8082949537409288079
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3914285414585601767}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9955788a5eaffa49a9297f38eaa6202, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 0
-  attackAnim: {fileID: 0}
 --- !u!212 &3792612847600793161
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -288,6 +273,7 @@ GameObject:
   - component: {fileID: 6605390976532435061}
   - component: {fileID: 1943852945385283781}
   - component: {fileID: 236440004372318088}
+  - component: {fileID: 6056674235199799856}
   m_Layer: 0
   m_Name: Attack
   m_TagString: Untagged
@@ -317,9 +303,9 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7913117170128994363}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d5ed490436a07df4ab07a3c42a2372c1, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -404,3 +390,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.4535184, y: 0.86561894}
   m_EdgeRadius: 0
+--- !u!114 &6056674235199799856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7913117170128994363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9955788a5eaffa49a9297f38eaa6202, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
+  attackAnim: {fileID: 3963811521219238283}

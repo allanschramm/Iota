@@ -5,16 +5,16 @@ using UnityEngine;
 public class Attack : MonoBehaviour
 {
 	public int damage;
-	public Animator attackAnim;
+	public Animator anim;
 
 	// Start is called before the first frame update
 	void Start()
     {
-        attackAnim = GetComponent<Animator>();
+        anim = GetComponent<Animator>();
     }
 
 	public void PlayAnimation(AnimationClip clip){ 
-		attackAnim.Play(clip.name);
+		anim.Play(clip.name);
 	}
 
 	public void SetWeapon(int damageValue){

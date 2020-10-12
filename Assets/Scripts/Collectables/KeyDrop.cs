@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KeyCollect : MonoBehaviour
+public class KeyDrop : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -14,5 +14,14 @@ public class KeyCollect : MonoBehaviour
     void Update()
     {
         
+    }
+
+    private void OnTriggerEnter2D(Collider2D other) {
+        CharacterController2D player = other.GetComponent<CharacterController2D> ();
+
+        if(player !=null){
+            player.AddKey();
+            Destroy(gameObject);
+        }
     }
 }

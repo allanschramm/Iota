@@ -8,6 +8,7 @@ TagManager:
   - Damage
   - HitBox
   - Collectable
+  - Platform
   layers:
   - Default
   - TransparentFX

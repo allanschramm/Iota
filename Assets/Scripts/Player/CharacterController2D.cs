@@ -145,6 +145,10 @@ public class CharacterController2D : MonoBehaviour
 		attack.SetWeapon(weaponEquipped.damage);
 	}
 
+	public void AddKey(){
+		keys++;
+	}
+
 	public void DoDashDamage()
 	{
 		weaponEquipped.damage = Mathf.Abs(weaponEquipped.damage);

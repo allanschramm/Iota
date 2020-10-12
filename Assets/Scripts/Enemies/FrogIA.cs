@@ -59,6 +59,7 @@ public class FrogIA : MonoBehaviour
             Destroy(HitBox);
             // _GameController.PlaySFX(_GameController.sfxEnemyDead, 0.2f);
             frogAnim.SetTrigger("IsDead");
+            Debug.Log("Sapo tomou dano!");
         }
     }
 

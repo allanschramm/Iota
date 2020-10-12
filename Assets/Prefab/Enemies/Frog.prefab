@@ -187,7 +187,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   life: 8
-  dmg: 1
+  damage: 0
   isInvincible: 0
   player: {fileID: 2750143398441862847, guid: 3707f0b81ff0e8143bb379cbcea59108, type: 3}
   speed: 3

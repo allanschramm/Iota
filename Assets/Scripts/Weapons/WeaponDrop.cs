@@ -21,7 +21,7 @@ public class WeaponDrop : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
-        CharacterController2D player = other.GetComponent<CharacterController2D> ();
+        PlayerController2D player = other.GetComponent<PlayerController2D> ();
 
         if(player !=null){
             player.AddWeapon(weapon);

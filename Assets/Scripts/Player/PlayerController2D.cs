@@ -25,8 +25,11 @@ public class PlayerController2D : MonoBehaviour
     private bool isAttacking;
 
     //Variaveis do ataque
-    public Transform attack;
+    public Transform attackHitBox;
     public GameObject hitBoxPrefab;
+    public Weapon weaponEquipped;
+    private Attack attack;
+
 
     private void Awake(){
         playerRb = GetComponent<Rigidbody2D>();
@@ -39,7 +42,7 @@ public class PlayerController2D : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // attack = GetComponentInChildren<Attack>();
+        attack = GetComponentInChildren<Attack>();
     }
 
     // Update is called once per frame
@@ -67,6 +70,7 @@ public class PlayerController2D : MonoBehaviour
 
         if(Input.GetButtonDown("Fire1") && isAttacking == false){
             _GameController.PlaySFX(_GameController.sfxAttack, 1f);
+            attack.PlayAnimation(weaponEquipped.animation);
             isAttacking = true;
             playerAnim.SetTrigger("Attack");
         }
@@ -92,6 +96,11 @@ public class PlayerController2D : MonoBehaviour
         }
 	}
 
+	public void AddWeapon(Weapon weapon){
+		weaponEquipped = weapon;
+		attack.SetWeapon(weaponEquipped.damage);
+	}
+
     void Flip(){
         isLookingLeft = !isLookingLeft;
         float x = transform.localScale.x * -1;
@@ -103,7 +112,7 @@ public class PlayerController2D : MonoBehaviour
     }
 
     void hitBoxAttack(){
-        GameObject hitBoxTemp = Instantiate(hitBoxPrefab, attack.position, transform.localRotation);
+        GameObject hitBoxTemp = Instantiate(hitBoxPrefab, attackHitBox.position, transform.localRotation);
         Destroy(hitBoxTemp, 0.2f);
     }
 

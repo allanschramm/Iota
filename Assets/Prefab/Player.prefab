@@ -87,9 +87,10 @@ MonoBehaviour:
   life: 12
   keys: 0
   groundCheck: {fileID: 3916317494187295343}
-  attack: {fileID: 462001957010155001}
+  attackHitBox: {fileID: 462001957010155001}
   hitBoxPrefab: {fileID: 7369852392259109720, guid: aac43f53a2625174fa5b1dd39db9cc7d,
     type: 3}
+  weaponEquipped: {fileID: 0}
 --- !u!212 &3792612847600793161
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -75,14 +75,14 @@ public class FrogIA : MonoBehaviour
 		}
     }
 
-    void OnTriggerEnter2D(Collider2D col){
-        if(col.gameObject.tag == "HitBox" && life > 0){
+    void OnCollisionStay2D(Collision2D collision){
+		if (collision.gameObject.tag == "Player" && life > 0)
+		{
             h = 0;
             StopCoroutine("frogWalk");
-			col.gameObject.GetComponent<PlayerController2D>().ApplyDamage(dmg, transform.position);
-            Destroy(HitBox);
-        }
-    }
+			collision.gameObject.GetComponent<CharacterController2D>().ApplyDamage(dmg, transform.position);
+		}
+	}
 
     void OnDead(){
         Destroy(this.gameObject);

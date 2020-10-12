@@ -7,11 +7,12 @@ public class EnemyController : MonoBehaviour
     public float life;
     public int dmg;
 
+    // limita a distancia pra andar
     public float WalkDistance;
     private float minX;
     private float maxX;
-
     private float destinationX;
+    
     private Rigidbody2D rb2d;
     private int direction = -1;
     public int speed;

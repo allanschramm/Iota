@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemID: 0
   weaponName: Hand
-  description: Espada curta
+  description: Espada Curta
   damage: 2
   image: {fileID: -2027895187021310853, guid: abe3107eb57c8f241b5afc4d1fcca689, type: 3}
   animation: {fileID: 7400000, guid: a4b8cbca295bb1342883296bd686e2fd, type: 2}

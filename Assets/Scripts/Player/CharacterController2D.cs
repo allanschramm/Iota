@@ -201,7 +201,7 @@ public class CharacterController2D : MonoBehaviour
 
 	IEnumerator AttackCooldown()
 	{
-		yield return new WaitForSeconds(0.2f);
+		yield return new WaitForSeconds(0.5f);
 		if(weaponEquipped != null){
 			canAttack = true;
 		}

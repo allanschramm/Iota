@@ -62,7 +62,7 @@ public class EnemyController : MonoBehaviour
 
     void Move(){
         if(life > 0){
-            transform.GetComponent<Animator>().SetTrigger("Walk");
+            transform.GetComponent<Animator>().SetTrigger("IsWalk");
 
             Vector2 newPosition = transform.position;
             newPosition.x += direction * speed * Time.deltaTime;
@@ -97,8 +97,7 @@ public class EnemyController : MonoBehaviour
 	{
 		if (collision.gameObject.tag == "Player" && life > 0)
 		{
-			collision.gameObject.GetComponent<CharacterController2D>().ApplyDamage(damage
-    , transform.position);
+			collision.gameObject.GetComponent<CharacterController2D>().ApplyDamage(damage, transform.position);
 		}
 	}
 

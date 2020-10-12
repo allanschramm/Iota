@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class Attack : MonoBehaviour
 {
-	public float damage;
-	public Animator animator;
+	public int damage;
+	public Animator attackAnim;
 
 	// Start is called before the first frame update
 	void Start()
     {
-        animator = GetComponent<Animator>();
+        attackAnim = GetComponent<Animator>();
     }
 
 	public void PlayAnimation(AnimationClip clip){ 
-		animator.Play(clip.name);
+		attackAnim.Play(clip.name);
 	}
 
 	public void SetWeapon(int damageValue){
@@ -22,7 +22,7 @@ public class Attack : MonoBehaviour
 	}
 
 	void OnTriggerEnter2D(Collider2D other) {
-		FrogIA enemy = other.GetComponent<FrogIA> ();
+		EnemyController enemy = other.GetComponent<EnemyController> ();
 		DestructibleObject destrObject = other.GetComponent<DestructibleObject> ();
 		
 		if(enemy != null){

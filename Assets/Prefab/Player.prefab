@@ -303,7 +303,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7913117170128994363}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: d5ed490436a07df4ab07a3c42a2372c1, type: 2}
   m_CullingMode: 0
@@ -403,4 +403,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 0
-  attackAnim: {fileID: 3963811521219238283}
+  anim: {fileID: 0}

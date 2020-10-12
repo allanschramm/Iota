@@ -5,7 +5,7 @@ using UnityEngine;
 public class FrogIA : MonoBehaviour
 {
     public float life;
-    public int dmg;
+    public int damage;
     public bool isInvincible = false;
     public PlayerController2D player;
 
@@ -62,7 +62,7 @@ public class FrogIA : MonoBehaviour
 		}
     }
 
-	public void ApplyDamage(int damage) {
+	public void ApplyDamage(float damage) {
 		if (!isInvincible) 
 		{
 			float direction = damage / Mathf.Abs(damage);
@@ -80,7 +80,7 @@ public class FrogIA : MonoBehaviour
 		{
             h = 0;
             StopCoroutine("frogWalk");
-			collision.gameObject.GetComponent<CharacterController2D>().ApplyDamage(dmg, transform.position);
+			collision.gameObject.GetComponent<CharacterController2D>().ApplyDamage(damage, transform.position);
 		}
 	}
 

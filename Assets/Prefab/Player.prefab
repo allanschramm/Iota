@@ -89,23 +89,15 @@ MonoBehaviour:
   life: 12
   keys: 0
   groundCheck: {fileID: 3916317494187295343}
-  attackHitBox: {fileID: 462001957010155001}
-  hitBoxPrefab: {fileID: 0}
   weaponEquipped: {fileID: 0}
+  m_DashForce: 500
   canDoubleJump: 0
-  m_DashForce: 25
   cam: {fileID: 0}
   invincible: 0
   canAttack: 0
   attackCheck: {fileID: 3916221046162149291}
   throwableObject: {fileID: 0}
   isTimeToCheck: 0
-  OnFallEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  OnLandEvent:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &8082949537409288079
 MonoBehaviour:
   m_ObjectHideFlags: 0

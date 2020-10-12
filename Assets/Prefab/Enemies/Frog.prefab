@@ -63,7 +63,7 @@ GameObject:
   - component: {fileID: 8518725004183042273}
   m_Layer: 9
   m_Name: Frog
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -185,6 +185,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed2b1ef1266c2e74cb8bb0ab371bf248, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 0.5
+  timeToWalk: 5
+  HitBox: {fileID: 4465775465615769050}
 --- !u!70 &8518725004183042273
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

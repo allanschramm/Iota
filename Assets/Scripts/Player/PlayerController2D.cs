@@ -94,6 +94,12 @@ public class PlayerController2D : MonoBehaviour
         if(col.gameObject.tag == "Damage"){
             Debug.Log("Tomou dano");
         }
+
+        if(col.gameObject.tag == "Collectable"){
+            Debug.Log("Coletou item");
+            _GameController.PlaySFX(_GameController.sfxWeapons, 1f);
+        }
+
 	}
 
 	public void AddWeapon(Weapon weapon){

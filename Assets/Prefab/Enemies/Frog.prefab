@@ -214,6 +214,7 @@ MonoBehaviour:
   life: 8
   damage: 1
   WalkDistance: 15
+  isLookingLeft: 1
   speed: 5
   isInvincible: 0
 --- !u!114 &4713237491536958451

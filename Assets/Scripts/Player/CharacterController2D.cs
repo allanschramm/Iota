@@ -149,6 +149,9 @@ public class CharacterController2D : MonoBehaviour
 		keys++;
 	}
 
+	void Dash(){
+		
+	}
 	public void DoDashDamage()
 	{
 		weaponEquipped.damage = Mathf.Abs(weaponEquipped.damage);

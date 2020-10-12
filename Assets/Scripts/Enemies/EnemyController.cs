@@ -12,6 +12,8 @@ public class EnemyController : MonoBehaviour
     private float minX;
     private float maxX;
     private float destinationX;
+    public bool isLookingLeft;
+
     
     private Rigidbody2D rb2d;
     private int direction = -1;
@@ -46,10 +48,18 @@ public class EnemyController : MonoBehaviour
                 Flip();
             }
 
+            transform.GetComponent<Animator>().SetTrigger("IsAttack");
             attacking = Mathf.Abs (player.transform.position.x - transform.position.x) < 10;
 
         } else {
             Move();
+        }
+
+        if(direction > 0 && isLookingLeft){
+            Flip();
+        }
+        else if (direction < 0 && !isLookingLeft){
+            Flip();
         }
     }
 
@@ -71,11 +81,11 @@ public class EnemyController : MonoBehaviour
             if (destinationX == minX && newPosition.x <= destinationX){
                 destinationX = maxX;
                 direction = 1;
-                Flip();
+                // Flip();
             } else if (destinationX == maxX && newPosition.x >= destinationX) {
                 destinationX = minX;
                 direction = -1;
-                Flip();
+                // Flip();
             }
         }
     }
@@ -87,7 +97,7 @@ public class EnemyController : MonoBehaviour
 			damage = Mathf.Abs(damage);
 			life -= damage;
 			rb2d.velocity = Vector2.zero;
-			rb2d.AddForce(new Vector2(direction * 500f, 100f));
+			rb2d.AddForce(new Vector2(direction * 50f, 10f));
 			StartCoroutine(HitTime());
             Debug.Log("Tomou hit");
 		}
@@ -101,7 +111,8 @@ public class EnemyController : MonoBehaviour
 		}
 	}
 
-    void Flip(){
+	void Flip(){
+        isLookingLeft = !isLookingLeft;        
         Vector3 escala = transform.localScale;
         escala.x *= -1;
         transform.localScale = escala;
@@ -109,7 +120,14 @@ public class EnemyController : MonoBehaviour
 
     public void AttackPlayer(){
         attacking = true;
+		StartCoroutine(AttackDelay());
     }
+
+    IEnumerator AttackDelay(){
+        yield return new WaitForSeconds(0.8f);
+        attacking = false;
+    }
+
 
 	IEnumerator HitTime()
 	{

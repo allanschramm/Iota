@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59f3bab2c83f71b4db6857b19daa035a, type: 3}
   m_Name: ShortSword
   m_EditorClassIdentifier: 
-  itemID: 2
+  itemID: 1
   weaponName: Short Sword
   description: Espada curta
   damage: 4

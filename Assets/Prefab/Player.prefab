@@ -86,13 +86,8 @@ MonoBehaviour:
   speed: 6
   jumpForce: 2500
   isLookingLeft: 0
-  invincible: 0
-  canAttack: 0
-  enemyFrog: {fileID: 4713237491536958451, guid: a9c80974943f9e142ad2872fb70670d6,
-    type: 3}
   life: 12
   keys: 0
-  cam: {fileID: 0}
   groundCheck: {fileID: 3916317494187295343}
   attackHitBox: {fileID: 462001957010155001}
   hitBoxPrefab: {fileID: 7369852392259109720, guid: aac43f53a2625174fa5b1dd39db9cc7d,
@@ -110,24 +105,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 783f8b7882d2d2a42a5b76de9179978f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_JumpForce: 0
-  m_MovementSmoothing: 0.05
-  m_AirControl: 0
-  m_WhatIsGround:
-    serializedVersion: 2
-    m_Bits: 0
-  m_GroundCheck: {fileID: 3916317494187295343}
-  m_WallCheck: {fileID: 3911101698514686419}
+  speed: 6
+  jumpForce: 2500
+  isLookingLeft: 0
+  dash: 0
+  life: 12
+  keys: 0
+  groundCheck: {fileID: 3916317494187295343}
+  attackHitBox: {fileID: 462001957010155001}
+  hitBoxPrefab: {fileID: 0}
+  weaponEquipped: {fileID: 0}
   canDoubleJump: 0
   m_DashForce: 25
-  life: 0
-  keys: 0
   cam: {fileID: 0}
   invincible: 0
   canAttack: 0
   attackCheck: {fileID: 3916221046162149291}
   throwableObject: {fileID: 0}
-  weaponEquipped: {fileID: 0}
   isTimeToCheck: 0
   OnFallEvent:
     m_PersistentCalls:

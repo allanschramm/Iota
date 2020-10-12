@@ -50,8 +50,6 @@ public class FrogIA : MonoBehaviour
 
             attacking = Mathf.Abs (player.transform.position.x - transform.position.x) < 10;
 
-        } else {
-        StartCoroutine("frogWalk");
         }
 
         if(h > 0 && isLookingLeft){

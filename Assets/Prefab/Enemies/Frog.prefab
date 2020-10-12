@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5662869646380882933}
   - component: {fileID: 6710619420251327072}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: HitBox
   m_TagString: Damage
   m_Icon: {fileID: 0}
@@ -186,9 +186,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed2b1ef1266c2e74cb8bb0ab371bf248, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  life: 8
+  dmg: 1
+  isInvincible: 0
+  player: {fileID: 2750143398441862847, guid: 3707f0b81ff0e8143bb379cbcea59108, type: 3}
   speed: 3
   timeToWalk: 5
-  HitBox: {fileID: 4465775465615769050}
+  HitBox: {fileID: 7369852392259109720, guid: aac43f53a2625174fa5b1dd39db9cc7d, type: 3}
   isLookingLeft: 1
 --- !u!70 &8518725004183042273
 CapsuleCollider2D:

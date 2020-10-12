@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class FrogIA : MonoBehaviour
 {
-    private GameController _GameController;
+    public float life;
+    public int dmg;
+    public bool isInvincible = false;
+    public PlayerController2D player;
+
     private Rigidbody2D frogRb;
     private Animator frogAnim;
 
@@ -20,8 +24,7 @@ public class FrogIA : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
-        _GameController = FindObjectOfType(typeof(GameController)) as GameController;
+        player = GetComponent<PlayerController2D>();
 
         frogRb = GetComponent<Rigidbody2D>();
         frogAnim = GetComponent<Animator>();
@@ -52,15 +55,44 @@ public class FrogIA : MonoBehaviour
 
     }
 
+    void FixedUpdate() {
+        if (life <= 0) {
+			transform.GetComponent<Animator>().SetTrigger("IsDead");
+			StartCoroutine(DestroyEnemy());
+		}
+    }
+
+	public void ApplyDamage(int damage) {
+		if (!isInvincible) 
+		{
+			float direction = damage / Mathf.Abs(damage);
+			damage = Mathf.Abs(damage);
+			life -= damage;
+			frogRb.velocity = Vector2.zero;
+			frogRb.AddForce(new Vector2(direction * 500f, 100f));
+			StartCoroutine(HitTime());
+            Debug.Log("Sapo tomou dano!");
+		}
+    }
+
     void OnTriggerEnter2D(Collider2D col){
-        if(col.gameObject.tag == "HitBox"){
+        if(col.gameObject.tag == "HitBox" && life > 0){
             h = 0;
             StopCoroutine("frogWalk");
+			col.gameObject.GetComponent<PlayerController2D>().ApplyDamage(dmg, transform.position);
             Destroy(HitBox);
-            // _GameController.PlaySFX(_GameController.sfxEnemyDead, 0.2f);
-            frogAnim.SetTrigger("IsDead");
-            Debug.Log("Sapo tomou dano!");
         }
+    }
+
+    void OnDead(){
+        Destroy(this.gameObject);
+    }
+
+    void Flip(){
+        isLookingLeft = !isLookingLeft;
+        float x = transform.localScale.x * -1;
+        transform.localScale = new Vector3(x, transform.localScale.y, transform.localScale.z);
+
     }
 
     IEnumerator frogWalk(){
@@ -80,14 +112,23 @@ public class FrogIA : MonoBehaviour
         StartCoroutine("frogWalk");
     }
 
-    void OnDead(){
-        Destroy(this.gameObject);
-    }
+    IEnumerator HitTime(){
+		// isHitted = true;
+		isInvincible = true;
+        transform.GetComponent<Animator>().SetTrigger("Hit");
+		yield return new WaitForSeconds(0.2f);
+		// isHitted = false;
+		isInvincible = false;
+	}
 
-    void Flip(){
-        isLookingLeft = !isLookingLeft;
-        float x = transform.localScale.x * -1;
-        transform.localScale = new Vector3(x, transform.localScale.y, transform.localScale.z);
-
-    }
+    IEnumerator DestroyEnemy(){
+		CapsuleCollider2D capsule = GetComponent<CapsuleCollider2D>();
+		capsule.size = new Vector2(1f, 0.25f);
+		capsule.offset = new Vector2(0f, -0.8f);
+		capsule.direction = CapsuleDirection2D.Horizontal;
+		yield return new WaitForSeconds(0.25f);
+		frogRb.velocity = new Vector2(0, frogRb.velocity.y);
+		yield return new WaitForSeconds(2f);
+		Destroy(gameObject);
+	}
 }

@@ -99,7 +99,6 @@ public class PlayerController2D : MonoBehaviour
             Debug.Log("Coletou item");
             _GameController.PlaySFX(_GameController.sfxWeapons, 1f);
         }
-
 	}
 
 	public void AddWeapon(Weapon weapon){
@@ -114,11 +113,6 @@ public class PlayerController2D : MonoBehaviour
 
     void OnEndAttack(){
         isAttacking = false;
-    }
-
-    void hitBoxAttack(){
-        GameObject hitBoxTemp = Instantiate(hitBoxPrefab, attackHitBox.position, transform.localRotation);
-        Destroy(hitBoxTemp, 0.2f);
     }
 
     void footStep(){

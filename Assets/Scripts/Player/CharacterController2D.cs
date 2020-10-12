@@ -18,8 +18,6 @@ public class CharacterController2D : MonoBehaviour
     public bool isLookingLeft;
 	public bool dash = false;
 
-
-
     // Variaveis da UI
     public int life; //Life of the player
 	public int keys; //keys counter
@@ -32,43 +30,23 @@ public class CharacterController2D : MonoBehaviour
     //Variaveis do ataque
     public Weapon weaponEquipped;
     private Attack attack;
+	public GameObject throwableObject;
+	public bool canAttack = true; // Controla se o jogador pode atacar
 
-	// **************************** ANTIGAS VARIAVEIS ****************************
+	// Movimentação
+	private bool canMove = true; //If player can move
+	private float h;
 
-
-	const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
-	private bool m_Grounded;            // Whether or not the player is grounded.
-	private bool m_FacingRight = true;  // For determining which way the player is currently facing.
-	private Vector3 velocity = Vector3.zero;
-	private float limitFallSpeed = 50f; // Limit fall speed
-
-	public bool canDoubleJump = false; //If player can double jump
+	// Dash control
 	[SerializeField] private float m_DashForce = 25f;
-	private bool canDash = true;
+	private bool canDash = true; // Controla de o jogador pode usar o Dash
 	private bool isDashing = false; //If player is dashing
-	private bool m_IsWall = false; //If there is a wall in front of the player
-	private bool IsFalling = false; //If player is sliding in a wall
-	private bool oldWallSlidding = false; //If player is sliding in a wall in the previous frame
-	private float prevVelocityX = 0f;
-	private bool canCheck = false; //For check if player is wallsliding
-
-	public GameObject cam;
+	public Transform attackCheck; // Verifica a colisdão do dash na frente do jogador
 
 	public bool invincible = false; //If player can die
-	private bool canMove = true; //If player can move
-	public bool canAttack = true;
 
-	public Transform attackCheck;
-
-	public GameObject throwableObject;
-	public bool isTimeToCheck = false;
-
-	private float jumpWallStartX = 0;
-	private float jumpWallDistX = 0; //Distance between player and wall
-	private bool limitVelOnWallJump = false; //For limit wall jump distance with low fps
-
-	[System.Serializable]
-	public class BoolEvent : UnityEvent<bool> { }
+	// Camera
+	public GameObject cam;
 
 	private void Awake()
 	{
@@ -85,7 +63,9 @@ public class CharacterController2D : MonoBehaviour
 
 	void Update()
     {
-        float h = Input.GetAxisRaw("Horizontal") * speed;
+		if(canMove){
+			h = Input.GetAxisRaw("Horizontal") * speed;
+		}
 
         if(isAttacking && isGrounded){
             h = 0;
@@ -109,7 +89,7 @@ public class CharacterController2D : MonoBehaviour
             playerRb.AddForce(new Vector2(0, jumpForce));
         }
 
-        if(Input.GetButtonDown("Fire1") && isAttacking == false){
+        if(Input.GetButtonDown("Fire1") && isAttacking == false && canAttack){
             playerAnim.SetTrigger("Attack");
             _GameController.PlaySFX(_GameController.sfxAttack, 1f);
             isAttacking = true;
@@ -121,6 +101,10 @@ public class CharacterController2D : MonoBehaviour
 		if (Input.GetButton("Fire2"))
 		{
 			dash = true;
+			if (dash && canDash){
+				StartCoroutine(DashCooldown());
+				playerRb.velocity = new Vector2(transform.localScale.x * m_DashForce, 0);
+			}
 		}
 
 		//Implementar arma a ser arremessada
@@ -160,7 +144,6 @@ public class CharacterController2D : MonoBehaviour
 		weaponEquipped = weapon;
 		attack.SetWeapon(weaponEquipped.damage);
 	}
-
 
 	public void DoDashDamage()
 	{
@@ -226,7 +209,7 @@ public class CharacterController2D : MonoBehaviour
 
 	IEnumerator DashCooldown()
 	{
-		playerAnim.SetBool("IsDashing", true);
+		playerAnim.SetTrigger("IsDashing");
 		isDashing = true;
 		canDash = false;
 		yield return new WaitForSeconds(0.1f);

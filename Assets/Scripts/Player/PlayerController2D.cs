@@ -104,7 +104,6 @@ public class PlayerController2D : MonoBehaviour
 
 	public void AddWeapon(Weapon weapon){
 		weaponEquipped = weapon;
-		attack.SetWeapon(weaponEquipped.damage);
 	}
 
     void Flip(){

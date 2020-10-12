@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerController2D : MonoBehaviour
 {
+    private GameController _GameController;
 
     private Rigidbody2D playerRb;
     private Animator playerAnim;
@@ -27,11 +28,18 @@ public class PlayerController2D : MonoBehaviour
     public Transform attack;
     public GameObject hitBoxPrefab;
 
+    private void Awake(){
+        playerRb = GetComponent<Rigidbody2D>();
+        playerAnim = GetComponent<Animator>();
+
+        _GameController = FindObjectOfType(typeof(GameController)) as GameController;
+        _GameController.playerTransform = this.transform;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        playerRb = GetComponent<Rigidbody2D>();
-        playerAnim = GetComponent<Animator>();
+        // attack = GetComponentInChildren<Attack>();
     }
 
     // Update is called once per frame
@@ -53,10 +61,12 @@ public class PlayerController2D : MonoBehaviour
         float speedY = playerRb.velocity.y;
 
         if(Input.GetButtonDown("Jump") && isGrounded){
+            _GameController.PlaySFX(_GameController.sfxJump, 1f);
             playerRb.AddForce(new Vector2(0, jumpForce));
         }
 
         if(Input.GetButtonDown("Fire1") && isAttacking == false){
+            _GameController.PlaySFX(_GameController.sfxAttack, 1f);
             isAttacking = true;
             playerAnim.SetTrigger("Attack");
         }
@@ -76,6 +86,12 @@ public class PlayerController2D : MonoBehaviour
 
     }
 
+	void OnTriggerEnter2D(Collider2D col){
+        if(col.gameObject.tag == "Damage"){
+            Debug.Log("Tomou dano");
+        }
+	}
+
     void Flip(){
         isLookingLeft = !isLookingLeft;
         float x = transform.localScale.x * -1;
@@ -89,5 +105,9 @@ public class PlayerController2D : MonoBehaviour
     void hitBoxAttack(){
         GameObject hitBoxTemp = Instantiate(hitBoxPrefab, attack.position, transform.localRotation);
         Destroy(hitBoxTemp, 0.2f);
+    }
+
+    void footStep(){
+        _GameController.PlaySFX(_GameController.sfxStep[Random.Range(0, _GameController.sfxStep.Length)], 0.5f);
     }
 }

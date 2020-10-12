@@ -175,10 +175,10 @@ public class CharacterController2D : MonoBehaviour
 	}
 
 	void OnTriggerEnter2D(Collider2D col){
-	if(col.gameObject.tag == "Damage"){
-		Debug.Log("Tomou dano");
+		if(col.gameObject.tag == "Damage"){
+			Debug.Log("Tomou dano");
+		}
 	}
-}
 	public void AddWeapon(Weapon weapon){
 		canAttack = true;
 		weaponEquipped = weapon;

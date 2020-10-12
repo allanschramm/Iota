@@ -8,17 +8,24 @@ public class PlayerController2D : MonoBehaviour
     private Rigidbody2D playerRb;
     private Animator playerAnim;
 
+    // Variaveis da animação
     public float speed;
     public float jumpForce;
+    public bool isLookingLeft;
 
+
+    // Variaveis da UI
     public int life; //Life of the player
 	public int keys; //keys counter
     
-    public bool isLookingLeft;
-
+    // Variaveis do pulo
     public Transform groundCheck;
     private bool isGrounded;
     private bool isAttacking;
+
+    //Variaveis do ataque
+    public Transform attack;
+    public GameObject hitBoxPrefab;
 
     // Start is called before the first frame update
     void Start()
@@ -80,6 +87,7 @@ public class PlayerController2D : MonoBehaviour
     }
 
     void hitBoxAttack(){
-        
+        GameObject hitBoxTemp = Instantiate(hitBoxPrefab, attack.position, transform.localRotation);
+        Destroy(hitBoxTemp, 0.2f);
     }
 }

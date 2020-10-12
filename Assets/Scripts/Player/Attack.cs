@@ -27,6 +27,7 @@ public class Attack : MonoBehaviour
 		
 		if(enemy != null){
 			enemy.ApplyDamage(damage);
+			Debug.Log("Aplicou dano no inimigo");
 		}
 
 		if(destrObject != null){

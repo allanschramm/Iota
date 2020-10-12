@@ -5,37 +5,54 @@ using UnityEngine;
 public class FrogIA : MonoBehaviour
 {
     public float life;
-    public int damage;
     public bool isInvincible = false;
-    public PlayerController2D player;
 
-    private Rigidbody2D frogRb;
-    private Animator frogAnim;
-
+    // Variaveis de controle de movimento
     public float speed;
     public float timeToWalk;
-
-    public GameObject HitBox;
     public bool isLookingLeft;
-
     private int h;
+
+
+    //Variaveis de controle de ataque
+    private bool attacking = false;
+    public int damage;
+
+    private Rigidbody2D rb2d;
+
+    private Animator frogAnim;
+
+    public GameObject player;
+
 
 
     // Start is called before the first frame update
     void Start()
     {
-        player = GetComponent<PlayerController2D>();
 
-        frogRb = GetComponent<Rigidbody2D>();
+        rb2d = GetComponent<Rigidbody2D>();
         frogAnim = GetComponent<Animator>();
 
         StartCoroutine("frogWalk");
 
+        player = GameObject.FindWithTag ("Player");
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        if (attacking && player !=null) {
+            if(player.transform.position.x > transform.position.x && transform.localScale.x > 0
+            || player.transform.position.x <  transform.position.x && transform.localScale.x < 0){
+                Flip();
+            }
+
+            attacking = Mathf.Abs (player.transform.position.x - transform.position.x) < 10;
+
+        } else {
+        StartCoroutine("frogWalk");
+        }
 
         if(h > 0 && isLookingLeft){
             Flip();
@@ -44,7 +61,7 @@ public class FrogIA : MonoBehaviour
             Flip();
         }
         
-        frogRb.velocity = new Vector2(h * speed, frogRb.velocity.y);
+        rb2d.velocity = new Vector2(h * speed, rb2d.velocity.y);
 
         if(h != 0){
             frogAnim.SetBool("IsWalk", true);
@@ -68,15 +85,15 @@ public class FrogIA : MonoBehaviour
 			float direction = damage / Mathf.Abs(damage);
 			damage = Mathf.Abs(damage);
 			life -= damage;
-			frogRb.velocity = Vector2.zero;
-			frogRb.AddForce(new Vector2(direction * 500f, 100f));
+			rb2d.velocity = Vector2.zero;
+			rb2d.AddForce(new Vector2(direction * 500f, 100f));
 			StartCoroutine(HitTime());
             Debug.Log("Sapo tomou dano!");
 		}
     }
 
     void OnCollisionStay2D(Collision2D collision){
-		if (collision.gameObject.tag == "Player" && life > 0)
+		if (collision.gameObject.tag == "player" && life > 0)
 		{
             h = 0;
             StopCoroutine("frogWalk");
@@ -127,7 +144,7 @@ public class FrogIA : MonoBehaviour
 		capsule.offset = new Vector2(0f, -0.8f);
 		capsule.direction = CapsuleDirection2D.Horizontal;
 		yield return new WaitForSeconds(0.25f);
-		frogRb.velocity = new Vector2(0, frogRb.velocity.y);
+		rb2d.velocity = new Vector2(0, rb2d.velocity.y);
 		yield return new WaitForSeconds(2f);
 		Destroy(gameObject);
 	}

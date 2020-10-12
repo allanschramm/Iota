@@ -8,12 +8,12 @@ public class KeyUI : MonoBehaviour
     public Sprite[] bar;
     public Image Key;
 
-    private CharacterController2D player;
+    private PlayerController2D player;
 
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.Find ("Player").GetComponent<CharacterController2D>();
+        player = GameObject.Find ("Player").GetComponent<PlayerController2D>();
     }
 
     // Update is called once per frame

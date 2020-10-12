@@ -34,10 +34,10 @@ public class FrogIA : MonoBehaviour
     void Update()
     {
 
-        if(h > 0 && isLookingLeft == true){
+        if(h > 0 && isLookingLeft){
             Flip();
         }
-        else if (h < 0 && isLookingLeft == false){
+        else if (h < 0 && !isLookingLeft){
             Flip();
         }
         

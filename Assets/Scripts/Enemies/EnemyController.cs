@@ -16,10 +16,12 @@ public class EnemyController : MonoBehaviour
 
     
     private Rigidbody2D rb2d;
-    private int direction = -1;
-    public int speed;
+    private int direction;
+    public float speed;
+    private bool isFollowing;
 
     private bool attacking = false;
+    private bool canAttack = false;
     private GameObject player;
 
 	
@@ -42,37 +44,41 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (attacking && player !=null) {
-            if(player.transform.position.x > transform.position.x && transform.localScale.x > 0
-            || player.transform.position.x <  transform.position.x && transform.localScale.x < 0){
+        if(canAttack && player !=null){
+            if(isFollowing){
+                transform.position = Vector3.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
+            }
+
+            if(player.transform.position.x > transform.position.x && transform.localScale.x > 0 || player.transform.position.x < transform.position.x && transform.localScale.x < 0){
                 Flip();
             }
 
+            transform.GetComponent<Animator>().SetBool("IsWalk", false);
             transform.GetComponent<Animator>().SetTrigger("IsAttack");
             attacking = Mathf.Abs (player.transform.position.x - transform.position.x) < 10;
+            StartCoroutine(AttackDelay(2f));
 
         } else {
             Move();
         }
 
-        if(direction > 0 && isLookingLeft){
-            Flip();
-        }
-        else if (direction < 0 && !isLookingLeft){
-            Flip();
-        }
+
+    }
+
+    void OnBecameVisible(){
+        isFollowing = true;
     }
 
     void FixedUpdate() {
         if (life <= 0) {
-			transform.GetComponent<Animator>().SetTrigger("IsDead");
+			transform.GetComponent<Animator>().SetBool("IsDead", true);
 			StartCoroutine(DestroyEnemy());
 		}
     }
 
     void Move(){
-        if(life > 0){
-            transform.GetComponent<Animator>().SetTrigger("IsWalk");
+        if(life > 0 && !canAttack){
+            transform.GetComponent<Animator>().SetBool("IsWalk", true);
 
             Vector2 newPosition = transform.position;
             newPosition.x += direction * speed * Time.deltaTime;
@@ -81,11 +87,11 @@ public class EnemyController : MonoBehaviour
             if (destinationX == minX && newPosition.x <= destinationX){
                 destinationX = maxX;
                 direction = 1;
-                // Flip();
+                Flip();
             } else if (destinationX == maxX && newPosition.x >= destinationX) {
                 destinationX = minX;
                 direction = -1;
-                // Flip();
+                Flip();
             }
         }
     }
@@ -113,19 +119,20 @@ public class EnemyController : MonoBehaviour
 
 	void Flip(){
         isLookingLeft = !isLookingLeft;        
-        Vector3 escala = transform.localScale;
-        escala.x *= -1;
-        transform.localScale = escala;
+        float x = transform.localScale.x * -1;
+        transform.localScale = new Vector3(x, transform.localScale.y, transform.localScale.z);
     }
 
     public void AttackPlayer(){
+        if(isFollowing && life > 0){
         attacking = true;
-		StartCoroutine(AttackDelay());
+        canAttack = true;
+        }
     }
 
-    IEnumerator AttackDelay(){
-        yield return new WaitForSeconds(0.8f);
-        attacking = false;
+    IEnumerator AttackDelay(float time){
+        canAttack = false;
+        yield return new WaitForSeconds(time);
     }
 
 
@@ -134,7 +141,7 @@ public class EnemyController : MonoBehaviour
 		// isHitted = true;
 		isInvincible = true;
         transform.GetComponent<Animator>().SetTrigger("Hit");
-		yield return new WaitForSeconds(0.2f);
+		yield return new WaitForSeconds(0.1f);
 		// isHitted = false;
 		isInvincible = false;
 	}
@@ -146,7 +153,7 @@ public class EnemyController : MonoBehaviour
 		capsule.direction = CapsuleDirection2D.Horizontal;
 		yield return new WaitForSeconds(0.25f);
 		rb2d.velocity = new Vector2(0, rb2d.velocity.y);
-		yield return new WaitForSeconds(2f);
+		yield return new WaitForSeconds(1f);
 		Destroy(gameObject);
 	}
 }

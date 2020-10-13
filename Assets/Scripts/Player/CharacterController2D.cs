@@ -61,8 +61,12 @@ public class CharacterController2D : MonoBehaviour
 		attack = GetComponentInChildren<Attack>();
 	}
 
-	void Update()
-    {
+
+
+	private void Update(){
+
+		isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.02f);
+		
 		if(canMove){
 			h = Input.GetAxisRaw("Horizontal") * speed;
 		}
@@ -121,11 +125,6 @@ public class CharacterController2D : MonoBehaviour
         playerAnim.SetBool("IsGrounded", isGrounded);
         playerAnim.SetFloat("speedY", speedY);
         playerAnim.SetBool("IsAttacking", isAttacking);
-
-    }
-
-	private void FixedUpdate(){
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.02f);
 	}
 
 	void OnTriggerEnter2D(Collider2D col){
@@ -186,7 +185,7 @@ public class CharacterController2D : MonoBehaviour
 			}
 			else
 			{
-				StartCoroutine(Stun(0.25f));
+				StartCoroutine(Stun(0.1f));
 				StartCoroutine(MakeInvincible(1f));
 			}
 		}
@@ -208,7 +207,7 @@ public class CharacterController2D : MonoBehaviour
 
 	IEnumerator AttackCooldown()
 	{
-		yield return new WaitForSeconds(0.5f);
+		yield return new WaitForSeconds(0.2f);
 		if(weaponEquipped != null){
 			canAttack = true;
 		}

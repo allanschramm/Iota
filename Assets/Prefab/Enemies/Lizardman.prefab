@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 424357740393947461}
   - component: {fileID: 4951284791131255895}
   - component: {fileID: 7607497757181094563}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PlayerDistance
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -83,10 +83,9 @@ GameObject:
   - component: {fileID: 8809544231333504613}
   - component: {fileID: 8809544231333504610}
   - component: {fileID: 2756113263207999068}
-  - component: {fileID: 537332395}
   - component: {fileID: 8809544231333504608}
   - component: {fileID: 3041271341432901876}
-  - component: {fileID: 1560174093}
+  - component: {fileID: 1661502711094254814}
   m_Layer: 9
   m_Name: Lizardman
   m_TagString: Enemy
@@ -167,23 +166,6 @@ MonoBehaviour:
   isLookingLeft: 1
   speed: 15
   isInvincible: 0
---- !u!114 &537332395
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8809544231333504612}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2bf45e412e845ac439e4125135e043a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  life: 80
-  damage: 4
-  WalkDistance: 30
-  speed: 15
-  isInvincible: 0
 --- !u!212 &8809544231333504608
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -260,7 +242,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.44, y: 0.6}
   m_EdgeRadius: 0
---- !u!70 &1560174093
+--- !u!70 &1661502711094254814
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -273,6 +255,6 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.00000011920929}
+  m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.44, y: 0.6}
   m_Direction: 0

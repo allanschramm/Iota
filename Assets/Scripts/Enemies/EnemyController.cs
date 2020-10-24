@@ -133,7 +133,7 @@ public class EnemyController : MonoBehaviour
     //     }
     // }
 
-	public virtual void DamageEnemy(int playerDmg) {
+	public void DamageEnemy(int playerDmg) {
 		if (!isInvincible) 
 		{
 			float direction = playerDmg / Mathf.Abs(playerDmg);

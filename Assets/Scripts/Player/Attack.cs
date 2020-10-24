@@ -22,16 +22,22 @@ public class Attack : MonoBehaviour
 	}
 
 	void OnTriggerEnter2D(Collider2D other) {
-		EnemyController enemy = other.GetComponent<EnemyController> ();
-		DestructibleObject destrObject = other.GetComponent<DestructibleObject> ();
+		if (other.CompareTag("Enemy")){
+			EnemyController enemy = other.GetComponent<EnemyController> ();
 		
-		if(enemy != null){
-			enemy.ApplyDamage(damage);
-			Debug.Log("Aplicou dano no inimigo");
+			if(enemy != null){
+				enemy.DamageEnemy(damage);
+				Debug.Log("Aplicou dano no inimigo!");
+			}
+
+			DestructibleObject destrObject = other.GetComponent<DestructibleObject> ();
+
+			if(destrObject != null){
+				destrObject.ApplyDamage(damage);
+				Debug.Log("Aplicou dano ao objeto!");
+			}
 		}
 
-		if(destrObject != null){
-			destrObject.ApplyDamage(damage);
-		}
+
 	}
 }

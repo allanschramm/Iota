@@ -4,25 +4,38 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    public float life;
-    public int damage;
+    public int life;
+    protected int damage;
+    public float speed;
+
+    protected bool isMoving = false;
+    protected bool isLookingLeft;
+    protected float WalkDistance;
+
+    public float attackDistance;
+
+    protected Animator anim;
+    protected Transform player;
+    protected SpriteRenderer sprite;
+    protected Rigidbody2D rb2d;
+
+
+    // \/ **************************************************************** ANTIGAS VARIAVEIS **************************************************************** \/
 
     // limita a distancia pra andar
-    public float WalkDistance;
-    private float minX;
-    private float maxX;
-    private float destinationX;
-    public bool isLookingLeft;
+    // private float minX;
+    // private float maxX;
+    // private float destinationX;
 
-    
-    private Rigidbody2D rb2d;
+ 
     private int direction;
-    public float speed;
-    private bool isFollowing;
+    // private bool isFollowing;
 
-    private bool attacking = false;
-    private bool canAttack = false;
-    private GameObject player;
+
+    // Attack
+    // private bool attacking = false;
+    // private bool canAttack = false;
+    // private GameObject player;
 
 	
 
@@ -30,111 +43,134 @@ public class EnemyController : MonoBehaviour
 	// private bool isHitted = false;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        minX = transform.position.x - WalkDistance;
-        maxX = transform.position.x + WalkDistance;
+        rb2d = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
+        sprite = GetComponent<SpriteRenderer>();
+        player = GameObject.Find ("Player").GetComponent<Transform>();
 
-        destinationX = minX;
-        rb2d = GetComponent<Rigidbody2D> ();
-  
-        player = GameObject.FindWithTag ("Player");
+        // player = GameObject.FindWithTag ("Player");
+
+        // minX = transform.position.x - WalkDistance;
+        // maxX = transform.position.x + WalkDistance;
+
+        // destinationX = minX;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if(canAttack && player !=null){
-            if(isFollowing){
-                transform.position = Vector3.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
-            }
-
-            if(player.transform.position.x > transform.position.x && transform.localScale.x > 0 || player.transform.position.x < transform.position.x && transform.localScale.x < 0){
-                Flip();
-            }
-
-            transform.GetComponent<Animator>().SetBool("IsWalk", false);
-            transform.GetComponent<Animator>().SetTrigger("IsAttack");
-            attacking = Mathf.Abs (player.transform.position.x - transform.position.x) < 10;
-            StartCoroutine(AttackDelay(2f));
-
-        } else {
-            Move();
-        }
-
-
+    protected float PlayerDistance(){
+        return Vector2.Distance(player.position, transform.position);
     }
 
-    void OnBecameVisible(){
-        isFollowing = true;
-    }
-
-    void FixedUpdate() {
-        if (life <= 0) {
-			transform.GetComponent<Animator>().SetBool("IsDead", true);
-			StartCoroutine(DestroyEnemy());
-		}
-    }
-
-    void Move(){
-        if(life > 0 && !canAttack){
-            transform.GetComponent<Animator>().SetBool("IsWalk", true);
-
-            Vector2 newPosition = transform.position;
-            newPosition.x += direction * speed * Time.deltaTime;
-            transform.position = newPosition;
-            
-            if (destinationX == minX && newPosition.x <= destinationX){
-                destinationX = maxX;
-                direction = 1;
-                Flip();
-            } else if (destinationX == maxX && newPosition.x >= destinationX) {
-                destinationX = minX;
-                direction = -1;
-                Flip();
-            }
-        }
-    }
-
-	public void ApplyDamage(float damage) {
-		if (!isInvincible) 
-		{
-			float direction = damage / Mathf.Abs(damage);
-			damage = Mathf.Abs(damage);
-			life -= damage;
-			rb2d.velocity = Vector2.zero;
-			rb2d.AddForce(new Vector2(direction * 50f, 10f));
-			StartCoroutine(HitTime());
-            Debug.Log("Tomou hit");
-		}
-    }
-
-	void OnCollisionStay2D(Collision2D collision)
-	{
-		if (collision.gameObject.tag == "Player" && life > 0)
-		{
-			collision.gameObject.GetComponent<CharacterController2D>().ApplyDamage(damage, transform.position);
-		}
-	}
-
-	void Flip(){
+	protected void Flip(){
         isLookingLeft = !isLookingLeft;        
         float x = transform.localScale.x * -1;
+        speed *= -1;
         transform.localScale = new Vector3(x, transform.localScale.y, transform.localScale.z);
     }
 
-    public void AttackPlayer(){
-        if(isFollowing && life > 0){
-        attacking = true;
-        canAttack = true;
+    protected virtual void Update(){
+        float distance = PlayerDistance();
+
+        isMoving = (distance <= attackDistance);
+
+        if(isMoving){
+            if((player.position.x > transform.position.x && isLookingLeft) || (player.transform.position.x <  transform.position.x && !isLookingLeft)){
+                Flip();
+            }
         }
     }
 
-    IEnumerator AttackDelay(float time){
-        canAttack = false;
-        yield return new WaitForSeconds(time);
+    // \/ **************************************************************** ANTIGO CÓDIGO **************************************************************** \/
+
+    // Update is called once per frame
+    // void Update()
+    // {
+    //     if(canAttack && player !=null){
+    //         if(isFollowing){
+    //             transform.position = Vector3.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
+    //         }
+
+    //         if(player.transform.position.x > transform.position.x && transform.localScale.x > 0 || player.transform.position.x < transform.position.x && transform.localScale.x < 0){
+    //             Flip();
+    //         }
+
+    //         transform.GetComponent<Animator>().SetBool("IsWalk", false);
+    //         transform.GetComponent<Animator>().SetTrigger("IsAttack");
+    //         attacking = Mathf.Abs (player.transform.position.x - transform.position.x) < 10;
+    //         StartCoroutine(AttackDelay(2f));
+
+    //     } else {
+    //         Move();
+    //     }
+    // }
+
+    // void OnBecameVisible(){
+    //     isFollowing = true;
+    // }
+
+    void FixedUpdate() {
+ 
     }
 
+    // void Move(){
+    //     if(life > 0 && !canAttack){
+    //         transform.GetComponent<Animator>().SetBool("IsWalk", true);
+
+    //         Vector2 newPosition = transform.position;
+    //         newPosition.x += direction * speed * Time.deltaTime;
+    //         transform.position = newPosition;
+            
+    //         if (destinationX == minX && newPosition.x <= destinationX){
+    //             destinationX = maxX;
+    //             direction = 1;
+    //             Flip();
+    //         } else if (destinationX == maxX && newPosition.x >= destinationX) {
+    //             destinationX = minX;
+    //             direction = -1;
+    //             Flip();
+    //         }
+    //     }
+    // }
+
+	public virtual void DamageEnemy(int playerDmg) {
+		if (!isInvincible) 
+		{
+			float direction = playerDmg / Mathf.Abs(playerDmg);
+			// playerDmg = Mathf.Abs(playerDmg);
+
+            if (life <= 0) {
+                transform.GetComponent<Animator>().SetBool("IsDead", true);
+                StartCoroutine(DestroyEnemy());
+		    }
+
+			life -= playerDmg;
+			rb2d.velocity = Vector2.zero;
+			rb2d.AddForce(new Vector2(direction * 50f, 10f));
+			StartCoroutine(HitTime());
+		}
+    }
+
+	// void OnCollisionStay2D(Collision2D collision)
+	// {
+	// 	if (collision.gameObject.tag == "Player" && life > 0)
+	// 	{
+	// 		collision.gameObject.GetComponent<CharacterController2D>().ApplyDamage(damage, transform.position);
+	// 	}
+	// }
+
+
+    // public void AttackPlayer(){
+    //     if(isFollowing && life > 0){
+    //     attacking = true;
+    //     canAttack = true;
+    //     }
+    // }
+
+    // IEnumerator AttackDelay(float time){
+    //     canAttack = false;
+    //     yield return new WaitForSeconds(time);
+    // }
 
 	IEnumerator HitTime()
 	{
@@ -156,4 +192,5 @@ public class EnemyController : MonoBehaviour
 		yield return new WaitForSeconds(1f);
 		Destroy(gameObject);
 	}
+
 }

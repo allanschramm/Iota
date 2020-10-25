@@ -19,7 +19,7 @@ public class PlayerTrigger : MonoBehaviour
 			EnemyController enemy = other.GetComponent<EnemyController> ();
 
             if(!player.invincible){
-                player.ApplyDamage(enemy.damage, enemy.transform.position);
+                player.ApplyDamage(enemy.damage);
             }
         }
 	}

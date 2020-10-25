@@ -142,44 +142,46 @@ public class CharacterController2D : MonoBehaviour
 		keys++;
 	}
 
-	void Dash(){
+	// void Dash(){
 		
-	}
-	public void DoDashDamage()
-	{
-		weaponEquipped.damage = Mathf.Abs(weaponEquipped.damage);
-		Collider2D[] collidersEnemies = Physics2D.OverlapCircleAll(attackCheck.position, 0.9f);
-		for (int i = 0; i < collidersEnemies.Length; i++)
-		{
-			if (collidersEnemies[i].gameObject.tag == "Enemy" )
-			{
-				if (collidersEnemies[i].transform.position.x - transform.position.x < 0)
-				{
-					weaponEquipped.damage = -weaponEquipped.damage;
-				}
-				collidersEnemies[i].gameObject.SendMessage("ApplyDamage", weaponEquipped.damage);
-				cam.GetComponent<CameraFollow>().ShakeCamera();
-			}
-		}
-	}
+	// }
+	// public void DoDashDamage()
+	// {
+	// 	weaponEquipped.damage = Mathf.Abs(weaponEquipped.damage);
+	// 	Collider2D[] collidersEnemies = Physics2D.OverlapCircleAll(attackCheck.position, 0.9f);
+	// 	for (int i = 0; i < collidersEnemies.Length; i++)
+	// 	{
+	// 		if (collidersEnemies[i].gameObject.tag == "Enemy" )
+	// 		{
+	// 			if (collidersEnemies[i].transform.position.x - transform.position.x < 0)
+	// 			{
+	// 				weaponEquipped.damage = -weaponEquipped.damage;
+	// 			}
+	// 			collidersEnemies[i].gameObject.SendMessage("ApplyDamage", weaponEquipped.damage);
+	// 			cam.GetComponent<CameraFollow>().ShakeCamera();
+	// 		}
+	// 	}
+	// }
 
-	public void ApplyDamage(int damage, Vector3 position) 
+	public void ApplyDamage(int damage) 
 	{
 		if (!invincible)
 		{
 			playerAnim.SetBool("Hit", true);
 			cam.GetComponent<CameraFollow>().ShakeCamera();
 			life -= damage;
+
 			// Vector2 damageDir = Vector3.Normalize(transform.position - position) * 40f ;
 			// playerRb.velocity = Vector2.zero;
 			// playerRb.AddForce(damageDir * 50);
+
 			if (life <= 0)
 			{
 				StartCoroutine(WaitToDead());
 			}
 			else
 			{
-				StartCoroutine(Stun(0.1f));
+				StartCoroutine(Stun(0.5f));
 				StartCoroutine(MakeInvincible(2f));
 			}
 		}
@@ -223,6 +225,7 @@ public class CharacterController2D : MonoBehaviour
 		canMove = false;
 		yield return new WaitForSeconds(time);
 		canMove = true;
+		Debug.Log(canMove);
 	}
 
 	IEnumerator MakeInvincible(float time) 

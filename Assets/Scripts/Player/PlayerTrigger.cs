@@ -22,5 +22,13 @@ public class PlayerTrigger : MonoBehaviour
                 player.ApplyDamage(enemy.damage);
             }
         }
+
+        if (other.CompareTag ("Portal") && player.GetKey() >= 1){
+            Invoke ("NextLevel", 1f);
+        }
 	}
+
+    void NextLevel(){
+		SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
+    }
 }

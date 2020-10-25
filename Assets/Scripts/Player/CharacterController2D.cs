@@ -142,6 +142,10 @@ public class CharacterController2D : MonoBehaviour
 		keys++;
 	}
 
+	public int GetKey(){
+		return keys;
+	}
+
 	public void AddPotion(){
 		if(life >= 8){
 			life = 12;

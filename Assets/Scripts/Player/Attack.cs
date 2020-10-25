@@ -23,20 +23,23 @@ public class Attack : MonoBehaviour
 	}
 
 	void OnTriggerEnter2D(Collider2D other) {
-		if (other.CompareTag("Enemy")){
+		if (other.CompareTag("Enemy") || other.CompareTag("Boss")){
 
+			Debug.Log("Entrou no collider");
 			// Aplica dano aos inimigos comuns
 			EnemyController enemy = other.GetComponent<EnemyController> ();
 		
 			if(enemy != null){
 				enemy.DamageEnemy(damage);
+				Debug.Log("Dano no inimigo");
 			}
 
 			// Aplica dano ao Boss
 			BossHealth bossHealth = other.GetComponent<BossHealth>();
 
-			if(enemy != null){
+			if(bossHealth != null){
 				bossHealth.TakeDamage(damage);
+				Debug.Log("Dano no boss");
 			}
 
 			// Aplica dano aos objetos destrutiveis
@@ -44,6 +47,7 @@ public class Attack : MonoBehaviour
 
 			if(destrObject != null){
 				destrObject.ApplyDamage(damage);
+				Debug.Log("Dano no objeto");
 			}
 		}
 

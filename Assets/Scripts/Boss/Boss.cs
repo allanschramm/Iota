@@ -7,6 +7,9 @@ public class Boss : MonoBehaviour
 
 	public Transform player;
 
+	public bool isAwake = false;
+	public float attackDistance;
+
 	public bool isFlipped = false;
 
 	public void LookAtPlayer()
@@ -26,6 +29,25 @@ public class Boss : MonoBehaviour
 			transform.Rotate(0f, 180f, 0f);
 			isFlipped = true;
 		}
+	}
+
+	public float PlayerDistance(){
+        return Vector2.Distance(player.position, transform.position);
+    }
+
+	private void Update() {
+		
+		float distance = PlayerDistance();
+		Debug.Log(distance);
+
+		isAwake = (distance <= attackDistance);
+
+        if(isAwake){
+			transform.GetComponent<Animator>().SetBool("IsAwake", true);
+        }
+        else{
+			transform.GetComponent<Animator>().SetBool("IsAwake", false);
+        }
 	}
 
 }

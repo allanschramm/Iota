@@ -15,10 +15,10 @@ GameObject:
   - component: {fileID: 1105695823592840911}
   - component: {fileID: 6262281987830599664}
   - component: {fileID: 1326862485}
-  - component: {fileID: 3307620117533751131}
+  - component: {fileID: 1326862479}
   m_Layer: 17
   m_Name: Lizardman
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -116,7 +116,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: ef36c02b22b7e9849aaf36eae1956019, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a48379250c3517b4ea48607084f1bbfc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -140,6 +140,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+  isMoving: 0
+  attackDistance: 40
   isFlipped: 0
 --- !u!114 &6262281987830599664
 MonoBehaviour:
@@ -154,7 +156,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 80
-  deathEffect: {fileID: 0}
   isInvulnerable: 0
 --- !u!114 &1326862485
 MonoBehaviour:
@@ -170,13 +171,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackDamage: 2
   enragedAttackDamage: 4
-  attackOffset: {x: -10, y: -2, z: 0}
+  attackOffset: {x: -7, y: -2, z: 0}
   attackRange: 5
   attackMask:
     serializedVersion: 2
     m_Bits: 256
---- !u!61 &3307620117533751131
-BoxCollider2D:
+--- !u!70 &1326862479
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -188,16 +189,6 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0334038, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.44, y: 0.6}
-    newSize: {x: 0.44, y: 0.6}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.3731924, y: 0.6}
-  m_EdgeRadius: 0
+  m_Offset: {x: 0.01658377, y: -0.00000011920929}
+  m_Size: {x: 0.31102502, y: 0.6}
+  m_Direction: 0

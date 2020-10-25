@@ -35,6 +35,7 @@ public class DestructibleObject : MonoBehaviour
 		if (life <= 0)
 		{
 			Destroy(gameObject);
+			
 		}
 		else if (shakeDuration > 0)
 		{

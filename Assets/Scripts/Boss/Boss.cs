@@ -38,7 +38,6 @@ public class Boss : MonoBehaviour
 	private void Update() {
 		
 		float distance = PlayerDistance();
-		Debug.Log(distance);
 
 		isAwake = (distance <= attackDistance);
 

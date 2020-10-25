@@ -227,7 +227,6 @@ public class CharacterController2D : MonoBehaviour
 		canMove = false;
 		yield return new WaitForSeconds(time);
 		canMove = true;
-		Debug.Log(canMove);
 	}
 
 	IEnumerator MakeInvincible(float time) 

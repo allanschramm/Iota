@@ -84,10 +84,6 @@ public class CharacterController2D : MonoBehaviour
 
         float speedY = playerRb.velocity.y;
 
-		if(Input.GetKeyDown(KeyCode.R)){
-			SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
-		}
-
         if(Input.GetButtonDown("Jump") && isGrounded){
             _GameController.PlaySFX(_GameController.sfxJump, 1f);
             playerRb.AddForce(new Vector2(0, jumpForce));
@@ -124,6 +120,11 @@ public class CharacterController2D : MonoBehaviour
         playerAnim.SetBool("IsGrounded", isGrounded);
         playerAnim.SetFloat("speedY", speedY);
         playerAnim.SetBool("IsAttacking", isAttacking);
+
+		if(Input.GetKeyDown(KeyCode.R)){
+			life = 0;
+			StartCoroutine(WaitToDead());
+		}
 	}
 
 	void OnTriggerEnter2D(Collider2D col){

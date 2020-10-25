@@ -99,11 +99,10 @@ public class CharacterController2D : MonoBehaviour
 
 		if (Input.GetButton("Fire2"))
 		{
-			dash = true;
-			if (dash && canDash){
+			if (canDash){
+
 				StartCoroutine(DashCooldown());
 				// playerRb.velocity = new Vector2(transform.localScale.x * m_DashForce, 0);
-				h = Input.GetAxisRaw("Horizontal") * speed;
 			}
 		}
 
@@ -123,8 +122,7 @@ public class CharacterController2D : MonoBehaviour
         playerAnim.SetBool("IsAttacking", isAttacking);
 
 		if(Input.GetKeyDown(KeyCode.R)){
-			life = 0;
-			StartCoroutine(WaitToDead());
+			ReLoadLevel();
 		}
 	}
 
@@ -142,6 +140,15 @@ public class CharacterController2D : MonoBehaviour
 
 	public void AddKey(){
 		keys++;
+	}
+
+	public void AddPotion(){
+		if(life >= 8){
+			life = 12;
+		}
+		else{
+			life += 4;
+		}
 	}
 
 	// void Dash(){
@@ -203,6 +210,10 @@ public class CharacterController2D : MonoBehaviour
         _GameController.PlaySFX(_GameController.sfxStep[Random.Range(0, _GameController.sfxStep.Length)], 0.5f);
     }
 
+	void ReLoadLevel(){
+				SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
+	}
+
 	IEnumerator AttackCooldown()
 	{
 		yield return new WaitForSeconds(0.2f);
@@ -245,6 +256,6 @@ public class CharacterController2D : MonoBehaviour
 		yield return new WaitForSeconds(.2f);
 		playerRb.velocity = new Vector2(0, playerRb.velocity.y);
 		yield return new WaitForSeconds(.8f);
-		SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
+		ReLoadLevel();
 	}
 }

@@ -15,4 +15,12 @@ public class PotionDrop : MonoBehaviour
     {
         
     }
+    private void OnTriggerEnter2D(Collider2D other) {
+        CharacterController2D player = other.GetComponent<CharacterController2D> ();
+
+        if(player !=null){
+            player.AddKey();
+            Destroy(gameObject);
+        }
+    }
 }

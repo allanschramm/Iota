@@ -5,7 +5,6 @@ using UnityEngine;
 public class FrogIA : EnemyController
 {
     void Start(){
-        life = 8;
         isLookingLeft = true;
     }
 

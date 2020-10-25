@@ -208,6 +208,7 @@ public class CharacterController2D : MonoBehaviour
 		if(weaponEquipped != null){
 			canAttack = true;
 		}
+		isAttacking = false;
 	}
 
 	IEnumerator DashCooldown()

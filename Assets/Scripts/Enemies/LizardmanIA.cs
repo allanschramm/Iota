@@ -5,7 +5,6 @@ using UnityEngine;
 public class LizardmanIA : EnemyController
 {
     void Start(){
-        life = 80;
         isLookingLeft = true;
     }
     

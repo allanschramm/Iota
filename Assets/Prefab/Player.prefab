@@ -335,7 +335,7 @@ GameObject:
   - component: {fileID: 1943852945385283781}
   - component: {fileID: 236440004372318088}
   - component: {fileID: 6056674235199799856}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Attack
   m_TagString: Untagged
   m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}

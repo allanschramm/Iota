@@ -9,6 +9,7 @@ TagManager:
   - HitBox
   - Collectable
   - Platform
+  - Boss
   layers:
   - Default
   - TransparentFX

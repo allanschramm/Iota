@@ -7,6 +7,7 @@ public class Attack : MonoBehaviour
 	public int damage;
 	public Animator anim;
 
+
 	// Start is called before the first frame update
 	void Start()
     {
@@ -23,12 +24,22 @@ public class Attack : MonoBehaviour
 
 	void OnTriggerEnter2D(Collider2D other) {
 		if (other.CompareTag("Enemy")){
+
+			// Aplica dano aos inimigos comuns
 			EnemyController enemy = other.GetComponent<EnemyController> ();
 		
 			if(enemy != null){
 				enemy.DamageEnemy(damage);
 			}
 
+			// Aplica dano ao Boss
+			BossHealth bossHealth = other.GetComponent<BossHealth>();
+
+			if(enemy != null){
+				bossHealth.TakeDamage(damage);
+			}
+
+			// Aplica dano aos objetos destrutiveis
 			DestructibleObject destrObject = other.GetComponent<DestructibleObject> ();
 
 			if(destrObject != null){

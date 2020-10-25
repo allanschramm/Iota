@@ -18,7 +18,6 @@ public class BossHealth : MonoBehaviour
 			return;
 
 		health -= damage;
-		Debug.Log(health);
 		StartCoroutine(HitTime());
 
 		if (health <= 30)
@@ -44,12 +43,10 @@ public class BossHealth : MonoBehaviour
 	
 	IEnumerator HitTime()
 	{
-		Debug.Log("Boss tomou hit");
 		isInvulnerable = true;
         transform.GetComponent<Animator>().SetTrigger("Hit");
 		yield return new WaitForSeconds(0.3f);
 		isInvulnerable = false;
-		Debug.Log(isInvulnerable);
 	}
     IEnumerator DestroyEnemy()
 	{

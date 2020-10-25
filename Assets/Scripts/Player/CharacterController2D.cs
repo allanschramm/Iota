@@ -102,7 +102,8 @@ public class CharacterController2D : MonoBehaviour
 			dash = true;
 			if (dash && canDash){
 				StartCoroutine(DashCooldown());
-				playerRb.velocity = new Vector2(transform.localScale.x * m_DashForce, 0);
+				// playerRb.velocity = new Vector2(transform.localScale.x * m_DashForce, 0);
+				h = Input.GetAxisRaw("Horizontal") * speed;
 			}
 		}
 

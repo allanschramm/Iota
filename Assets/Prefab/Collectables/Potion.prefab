@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 8766154226750743287}
   - component: {fileID: 4957697038659251244}
   - component: {fileID: 35417393243216201}
-  m_Layer: 0
+  - component: {fileID: 305643817058777531}
+  m_Layer: 1
   m_Name: Potion
-  m_TagString: Untagged
+  m_TagString: Collectable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -95,3 +96,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ce3df2e530939d4fb0d2601fd967dc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!70 &305643817058777531
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 510899295229128168}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.002053833, y: 0.0015396118}
+  m_Size: {x: 0.20914613, y: 0.24506989}
+  m_Direction: 0

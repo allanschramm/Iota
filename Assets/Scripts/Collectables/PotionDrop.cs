@@ -19,7 +19,7 @@ public class PotionDrop : MonoBehaviour
         CharacterController2D player = other.GetComponent<CharacterController2D> ();
 
         if(player !=null){
-            player.AddKey();
+            player.AddPotion();
             Destroy(gameObject);
         }
     }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     public int life;
-    protected int damage;
+    public int damage;
     public float speed;
 
     protected bool isMoving = false;
@@ -136,7 +136,7 @@ public class EnemyController : MonoBehaviour
 	public void DamageEnemy(int playerDmg) {
 		if (!isInvincible) 
 		{
-			float direction = playerDmg / Mathf.Abs(playerDmg);
+			int direction = playerDmg;
 			// playerDmg = Mathf.Abs(playerDmg);
 
             if (life <= 0) {
@@ -145,8 +145,10 @@ public class EnemyController : MonoBehaviour
 		    }
 
 			life -= playerDmg;
+
 			rb2d.velocity = Vector2.zero;
-			rb2d.AddForce(new Vector2(direction * 50f, 10f));
+			rb2d.AddForce(new Vector2(direction * speed, 10f));
+
 			StartCoroutine(HitTime());
 		}
     }

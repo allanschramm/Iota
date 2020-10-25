@@ -99,7 +99,6 @@ public class CharacterController2D : MonoBehaviour
             isAttacking = true;
             attack.PlayAnimation(weaponEquipped.animation);
 			StartCoroutine(AttackCooldown());
-			Debug.Log("Atacando");
         }
 
 		if (Input.GetButton("Fire2"))
@@ -128,12 +127,7 @@ public class CharacterController2D : MonoBehaviour
 	}
 
 	void OnTriggerEnter2D(Collider2D col){
-        if(col.gameObject.tag == "Damage"){
-            Debug.Log("Tomou dano");
-        }
-
         if(col.gameObject.tag == "Collectable"){
-            Debug.Log("Coletou item");
             _GameController.PlaySFX(_GameController.sfxWeapons, 1f);
         }
 	}
@@ -176,9 +170,9 @@ public class CharacterController2D : MonoBehaviour
 			playerAnim.SetBool("Hit", true);
 			cam.GetComponent<CameraFollow>().ShakeCamera();
 			life -= damage;
-			Vector2 damageDir = Vector3.Normalize(transform.position - position) * 40f ;
-			playerRb.velocity = Vector2.zero;
-			playerRb.AddForce(damageDir * 10);
+			// Vector2 damageDir = Vector3.Normalize(transform.position - position) * 40f ;
+			// playerRb.velocity = Vector2.zero;
+			// playerRb.AddForce(damageDir * 50);
 			if (life <= 0)
 			{
 				StartCoroutine(WaitToDead());
@@ -186,7 +180,7 @@ public class CharacterController2D : MonoBehaviour
 			else
 			{
 				StartCoroutine(Stun(0.1f));
-				StartCoroutine(MakeInvincible(1f));
+				StartCoroutine(MakeInvincible(2f));
 			}
 		}
 	}

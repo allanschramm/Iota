@@ -22,7 +22,5 @@ public class FrogIA : EnemyController
             rb2d.velocity = new Vector2(0, rb2d.velocity.y);
             transform.GetComponent<Animator>().SetBool("IsWalk", false);
         }
-  
-        
     }
 }

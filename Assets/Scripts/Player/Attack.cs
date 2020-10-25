@@ -27,14 +27,12 @@ public class Attack : MonoBehaviour
 		
 			if(enemy != null){
 				enemy.DamageEnemy(damage);
-				Debug.Log("Aplicou dano no inimigo!");
 			}
 
 			DestructibleObject destrObject = other.GetComponent<DestructibleObject> ();
 
 			if(destrObject != null){
 				destrObject.ApplyDamage(damage);
-				Debug.Log("Aplicou dano ao objeto!");
 			}
 		}
 

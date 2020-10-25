@@ -6,7 +6,6 @@ public class PlayerTrigger : MonoBehaviour
 {
 
     private CharacterController2D player;
-    private EnemyController enemy;
 
     // Start is called before the first frame update
     void Awake()

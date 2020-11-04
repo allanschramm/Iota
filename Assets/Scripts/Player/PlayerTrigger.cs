@@ -14,7 +14,7 @@ public class PlayerTrigger : MonoBehaviour
         player = GameObject.Find ("Player").GetComponent<CharacterController2D>();
     }
 
-    void OnTriggerEnter2D(Collider2D other){
+    void OnTriggerStay2D(Collider2D other){
 		if (other.CompareTag("Enemy")){
 			EnemyController enemy = other.GetComponent<EnemyController> ();
 

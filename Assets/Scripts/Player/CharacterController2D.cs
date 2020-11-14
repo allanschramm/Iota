@@ -195,7 +195,7 @@ public class CharacterController2D : MonoBehaviour
 			else
 			{
 				StartCoroutine(Stun(0.5f));
-				StartCoroutine(MakeInvincible(2f));
+				StartCoroutine(MakeInvincible(1f));
 			}
 		}
 	}

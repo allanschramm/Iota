@@ -158,5 +158,5 @@ MonoBehaviour:
   damage: 1
   speed: -8
   WalkDistance: 30
-  attackDistance: 6
+  attackDistance: 7
   isInvincible: 0

@@ -92,7 +92,7 @@ MonoBehaviour:
   weaponEquipped: {fileID: 0}
   throwableObject: {fileID: 0}
   canAttack: 0
-  m_DashForce: 500
+  m_DashForce: 20
   attackCheck: {fileID: 3916221046162149291}
   invincible: 0
   cam: {fileID: 0}
@@ -199,8 +199,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.15744415, y: -0.1347689}
-  m_Size: {x: 0.5699727, y: 1.035261}
+  m_Offset: {x: -0.15223545, y: -0.13997763}
+  m_Size: {x: 0.58039016, y: 1.0456785}
   m_Direction: 0
 --- !u!1 &3914398923525404049
 GameObject:
@@ -335,7 +335,7 @@ GameObject:
   - component: {fileID: 1943852945385283781}
   - component: {fileID: 236440004372318088}
   - component: {fileID: 6056674235199799856}
-  m_Layer: 16
+  m_Layer: 12
   m_Name: Attack
   m_TagString: Untagged
   m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}

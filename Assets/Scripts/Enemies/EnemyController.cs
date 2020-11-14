@@ -9,9 +9,10 @@ public class EnemyController : MonoBehaviour
     public float speed;
 
     protected bool isMoving = false;
+    protected bool isAttacking = false;
     protected bool isLookingLeft;
-    protected float WalkDistance;
-
+    
+    public float WalkDistance;
     public float attackDistance;
 
     protected Animator anim;
@@ -72,7 +73,24 @@ public class EnemyController : MonoBehaviour
     protected virtual void Update(){
         float distance = PlayerDistance();
 
-        isMoving = (distance <= attackDistance);
+        // Controla se está andando
+        if (distance < WalkDistance && distance > attackDistance){
+            isMoving = true;
+            isAttacking = false;
+        }
+
+        // Controla se está parado
+        if(distance > WalkDistance){
+            isMoving = false;
+            isAttacking = false;
+        }
+
+        //Controla se está atacando
+        if(distance <= attackDistance){
+            isMoving = false;
+            isAttacking = true;
+        }
+
 
         if(isMoving){
             if((player.position.x > transform.position.x && isLookingLeft) || (player.transform.position.x <  transform.position.x && !isLookingLeft)){

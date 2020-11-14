@@ -154,8 +154,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed2b1ef1266c2e74cb8bb0ab371bf248, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  life: 4
+  life: 6
   damage: 1
   speed: -8
-  attackDistance: 25
+  WalkDistance: 30
+  attackDistance: 6
   isInvincible: 0

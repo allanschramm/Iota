@@ -13,13 +13,25 @@ public class FrogIA : EnemyController
     }
 
     void FixedUpdate(){
-        if(isMoving){
+        // Cotrola animação de andar até o player
+        if(isMoving && !isAttacking){
             rb2d.velocity = new Vector2(speed, rb2d.velocity.y);
+            transform.GetComponent<Animator>().SetBool("IsAttacking", false);
             transform.GetComponent<Animator>().SetBool("IsWalk", true);
         }
-        else{
+
+        // Controla animação de Idle
+        if(!isMoving && !isAttacking){
             rb2d.velocity = new Vector2(0, rb2d.velocity.y);
             transform.GetComponent<Animator>().SetBool("IsWalk", false);
+            transform.GetComponent<Animator>().SetBool("IsAttacking", false);
+        }
+        
+        // Controla animação de Attack
+        if(!isMoving && isAttacking){
+            rb2d.velocity = new Vector2(0, rb2d.velocity.y);
+            transform.GetComponent<Animator>().SetBool("IsWalk", false);
+            transform.GetComponent<Animator>().SetBool("IsAttacking", true);
         }
     }
 }

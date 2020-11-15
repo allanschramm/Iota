@@ -24,6 +24,7 @@ public class PlayerTrigger : MonoBehaviour
         }
 
         if (other.CompareTag ("Portal") && player.GetKey() >= 1){
+            Cursor.visible = true;
             Invoke ("NextLevel", 1f);
         }
 	}

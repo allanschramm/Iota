@@ -99,7 +99,7 @@ public class EnemyController : MonoBehaviour
             StartCoroutine(DestroyEnemy());
 		}
 
-        if(isMoving){
+        if(isMoving && !isAttacking){
             if((player.position.x > transform.position.x && isLookingLeft) || (player.transform.position.x <  transform.position.x && !isLookingLeft)){
                 Flip();
             }

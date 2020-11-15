@@ -10,9 +10,6 @@ public class GameController : MonoBehaviour
     public AudioSource sfxSource;
     public AudioSource musicSource;
 
-    public OptionsMenu somMenu;
-    private float volume;
-
     public AudioClip sfxJump;
     public AudioClip sfxAttack;
     public AudioClip sfxHit;
@@ -23,7 +20,6 @@ public class GameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        volume = somMenu.GetVolume();
         
     }
 
@@ -34,8 +30,7 @@ public class GameController : MonoBehaviour
     }
 
 
-    public void PlaySFX(AudioClip sfxClip, float volumeF){
-        volumeF = volume;
-        sfxSource.PlayOneShot(sfxClip, volumeF);
+    public void PlaySFX(AudioClip sfxClip, float volume){
+        sfxSource.PlayOneShot(sfxClip, volume);
     }
 }

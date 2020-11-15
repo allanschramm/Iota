@@ -14,7 +14,7 @@ public class FrogIA : EnemyController
 
     void FixedUpdate(){
         // Cotrola animação de andar até o player
-        if(life >= 0){
+        if(life > 0){
             if(isMoving && !isAttacking){
                 rb2d.velocity = new Vector2(speed, rb2d.velocity.y);
                 transform.GetComponent<Animator>().SetBool("IsAttacking", false);

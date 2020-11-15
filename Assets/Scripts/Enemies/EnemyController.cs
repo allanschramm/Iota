@@ -91,6 +91,10 @@ public class EnemyController : MonoBehaviour
             isAttacking = true;
         }
 
+        if (life <= 0) {
+            transform.GetComponent<Animator>().SetBool("IsDead", true);
+            StartCoroutine(DestroyEnemy());
+		}
 
         if(isMoving){
             if((player.position.x > transform.position.x && isLookingLeft) || (player.transform.position.x <  transform.position.x && !isLookingLeft)){
@@ -157,10 +161,10 @@ public class EnemyController : MonoBehaviour
 			int direction = playerDmg;
 			// playerDmg = Mathf.Abs(playerDmg);
 
-            if (life <= 0) {
-                transform.GetComponent<Animator>().SetBool("IsDead", true);
-                StartCoroutine(DestroyEnemy());
-		    }
+            // if (life <= 0) {
+            //     transform.GetComponent<Animator>().SetBool("IsDead", true);
+            //     StartCoroutine(DestroyEnemy());
+		    // }
 
 			life -= playerDmg;
 

@@ -64,10 +64,13 @@ public class EnemyController : MonoBehaviour
     }
 
 	protected void Flip(){
-        isLookingLeft = !isLookingLeft;        
-        float x = transform.localScale.x * -1;
-        speed *= -1;
-        transform.localScale = new Vector3(x, transform.localScale.y, transform.localScale.z);
+        if(life > 0) {
+            isLookingLeft = !isLookingLeft;        
+            float x = transform.localScale.x * -1;
+            speed *= -1;
+            transform.localScale = new Vector3(x, transform.localScale.y, transform.localScale.z);
+        }
+
     }
 
     protected virtual void Update(){

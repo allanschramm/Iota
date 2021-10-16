@@ -1,2 +1,0 @@
-# Iota
- Senac PI Game

@@ -83,6 +83,8 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -92,8 +94,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -114,9 +116,12 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
   applyGammaDecoding: 0
   platformSettings:
   - serializedVersion: 3
@@ -576,6 +581,27 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      set-cave_bright_5: -3110325669521074210
+      set-cave_bright_19: -5771570100679639556
+      set-cave_bright_4: 942203705105058086
+      set-cave_bright_12: 4561513896913465248
+      set-cave_bright_18: -2300993147051392891
+      set-cave_bright_1: -8983396683404795553
+      set-cave_bright_3: -8824725781092174763
+      set-cave_bright_8: 3699561513215182072
+      set-cave_bright_15: -1910715342164786471
+      set-cave_bright_10: -7354670697576652654
+      set-cave_bright_2: 5718191222378398428
+      set-cave_bright_11: 5066686516600577875
+      set-cave_bright_13: -309875852101954511
+      set-cave_bright_14: 3793828346819507563
+      set-cave_bright_17: 7473758264975648434
+      set-cave_bright_9: 6784084516760213430
+      set-cave_bright_6: 3560169971873711035
+      set-cave_bright_7: -2746338309491874480
+      set-cave_bright_16: -1093357627529684356
+      set-cave_bright_0: -6875120363955328898
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
